@@ -1,9 +1,12 @@
 var express = require('express');
 var path = require('path');
+var yelp=require('yelp');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('./app_server/models/db');
+require('./app_server/models/yelp');
 
 /*var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 app.use('/', routes);
 app.use('/users', users);
 
@@ -59,6 +62,10 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+app.get('*', function(req, res) {
+        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
 
 
 module.exports = app;

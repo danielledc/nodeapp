@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node ./bin/www"
   },
-  "engines":{
-	"node": "~4.4.5",
-	"npm": "~2.15.5"
+  "engines": {
+    "node": "~4.4.5",
+    "npm": "~2.15.5"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,10 +16,13 @@
     "express": "~4.13.1",
     "jade": "~1.11.0",
     "jstransformer": "^1.0.0",
+    "mongodb": "^2.1.18",
+    "mongoose": "^4.5.0",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "transformers": "^3.1.0",
     "void-elements": "^2.0.1",
-    "with": "^5.1.1"
+    "with": "^5.1.1",
+    "yelp": "^1.0.1"
   }
 }
