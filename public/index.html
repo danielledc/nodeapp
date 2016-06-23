@@ -56,9 +56,9 @@
 	  	<h1>Find organic food throughout NYC <br/>
 	  	<button type="button" class="btn btn-primary" ng-click="showMap();" >Map View</button>
 	  	<button type="button" class="btn btn-primary" ng-click="listStores()">List View</button><h1>
-	  	<h5>Search for closest stores</h5><br/>
+	  	<h4>Search for closest stores</h4><br/>
 	 	<form ng-submit="convertToCoords()" class="form-inline" role="form">
-	 		<input type="text" ng-model="zipCode" /><button type="submit" class="btn btn-primary">Submit</button>
+	 		<input type="text" ng-model="zipCode" class="form-control" id="zip" /><button type="submit" class="btn btn-primary">Submit</button>
 	 	</form>
 
 	  </div>
