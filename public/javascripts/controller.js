@@ -7,13 +7,58 @@ angular.module('organicStores', [])
     }
 	$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-     $scope.clickedOn=false;
-	 $scope.clickedOnMap=false;
-	$scope.showHome=true;
+    $scope.clickedOn=false;
+    $scope.clickedOnMap=false;
+    $scope.showHome=true;
     $scope.ratingImg;
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
+			.success(function(data) {
+				$scope.stores = data;
+				$scope.clickedOn = true;
+				$scope.showHome = false;
+				$("#containerWrap").css("height","auto");
+				$scope.clickedOnMap = false;
+		
+				$.each(data, function(key,value) {    
+					$http.get('/ratings?yelpID='+value.yelpID)
+						.success(function(data){
+								console.log(data.rating_img_url);
+								$scope.ratingImg=data.rating_img_url;
+							    $scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
+						})
+						.error(function(data) {
+							console.log('Error: ' + data);
+						});		
+				});    
+				
+				//console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	}
+	$scope.convertToCoords=function(zip){
+		var lat = '';
+    		var lng = '';
+               // var address = {zipcode} or {city and state};
+    		geocoder.geocode( { 'address': zip}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+        		 lat = results[0].geometry.location.lat();
+         		 lng = results[0].geometry.location.lng();
+                	
+		});
+                } else {
+                //alert("Geocode was not successful for the following reason: " + status);
+		 }
+		});
+    		console.log(lat+" "+lng)
+				
+	}
+	$scope.listClosestStores=function(zip){
+	
+		$http.get('/closeststores?')
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.clickedOn = true;
