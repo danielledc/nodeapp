@@ -11,6 +11,7 @@ angular.module('organicStores', [])
     $scope.clickedOn=false;
     $scope.clickedOnMap=false;
     $scope.showHome=true;
+    $scope.zipCode="";
     $scope.ratingImg;
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
@@ -40,11 +41,11 @@ angular.module('organicStores', [])
 				console.log('Error: ' + data);
 			});
 	}
-	$scope.convertToCoords=function(zip){
+	$scope.convertToCoords=function(){
 		var lat = '';
     		var lng = '';
                // var address = {zipcode} or {city and state};
-    		$scope.geocoder.geocode( { 'address': zip}, function(results, status) {
+    		$scope.geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
         		 lat = results[0].geometry.location.lat();
          		 lng = results[0].geometry.location.lng();
@@ -56,7 +57,7 @@ angular.module('organicStores', [])
 		});
     				
 	}
-	$scope.listClosestStores=function(zip){
+	$scope.listClosestStores=function(){
 	
 		$http.get('/closeststores?')
 			.success(function(data) {
