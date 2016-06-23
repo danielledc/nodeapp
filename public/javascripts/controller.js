@@ -48,7 +48,7 @@ angular.module('organicStores', [])
 		if (status == google.maps.GeocoderStatus.OK) {
         		 lat = results[0].geometry.location.lat();
          		 lng = results[0].geometry.location.lng();
-                	
+                	 console.log(lat,lng);
 		
                 } else {
                 //alert("Geocode was not successful for the following reason: " + status);
