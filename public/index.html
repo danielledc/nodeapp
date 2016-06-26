@@ -67,7 +67,13 @@
     <div   ng-show="clickedOn" >
 		<div id="toggleButtons"><button type="button" class="btn btn-primary" ng-click="showMap()">Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
 	     </div>
-             <div class="col-sm-12"  ng-repeat="store in stores">    <strong> {{store.storeName}}<br/>
+	    <select class="form-control" ng-model="sortBy">
+            <option value="None">-- Select --</option>
+
+            <option value="store.storeName">Name</option>
+           
+        </select>
+             <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy">    <strong> {{store.storeName}}<br/>
 				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><img src="{{ratingImg}}" /><br/></strong><br/>
 				   <br/>
 				   </div>
