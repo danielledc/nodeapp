@@ -12,6 +12,7 @@ var locationSchema=new mongoose.Schema({
 	yelpID: String,
 	phone: String,
 	website: String,
+	borough: String,
 	hours: String
 	
 	
