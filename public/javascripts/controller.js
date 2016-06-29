@@ -27,10 +27,11 @@ angular.module('organicStores', [])
 				$.each(data, function(key,value) {    
 					$http.get('/ratings?yelpID='+value.yelpID)
 						.success(function(data){
-								console.log(data.rating_img_url);
-								$scope.ratingImg=data.rating_img_url;
-								$scope.rating=data.rating;
-							    $scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
+							$scope.stores[key].push({'rating' : data.rating});
+							console.log($scope.stores[key].rating)
+							$scope.ratingImg=data.rating_img_url;
+							$scope.rating=data.rating;
+							$scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
 						})
 						.error(function(data) {
 							console.log('Error: ' + data);
