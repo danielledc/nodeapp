@@ -18,6 +18,7 @@ angular.module('organicStores', [])
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.ratingImg="";
+				$scope.rating="";
     				$scope.clickedOn = true;
 				$scope.showHome = false;
 				$("#containerWrap").css("height","auto");
@@ -26,9 +27,9 @@ angular.module('organicStores', [])
 				$.each(data, function(key,value) {    
 					$http.get('/ratings?yelpID='+value.yelpID)
 						.success(function(data){
-								$scope.ratings=data;
 								console.log(data.rating_img_url);
 								$scope.ratingImg=data.rating_img_url;
+								$scope.rating=data.rating;
 							    $scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
 						})
 						.error(function(data) {
