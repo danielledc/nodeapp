@@ -27,7 +27,7 @@ angular.module('organicStores', [])
 				$.each(data, function(key,value) {    
 					$http.get('/ratings?yelpID='+value.yelpID)
 						.success(function(data){
-							$scope.stores[key].push({'rating' : data.rating});
+							$scope.stores[key].rating= data.rating;
 							console.log($scope.stores[key].rating)
 							$scope.ratingImg=data.rating_img_url;
 							$scope.rating=data.rating;
