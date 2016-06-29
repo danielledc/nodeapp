@@ -70,7 +70,7 @@
 	    <select class="form-control" ng-model="sortBy">
             <option value="None">-- Select --</option>
 
-            <option value="storeName">Name</option>
+            <option value="storeName">storeName</option>
            
         </select>
              <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy">    <strong> {{store.storeName}}<br/>
