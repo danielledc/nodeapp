@@ -70,13 +70,13 @@
 	    <form class="form-inline"><label for="pwd">Sort  By:</label><select class="form-control" ng-model="sortBy">
             
             <option value="storeName">Name</option>
-           
+           <option value="rating">Rating</option>
         </select>
         </form>
 	     </div>
 	    
              <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy">    <strong> {{store.storeName}}<br/>
-				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><img src="{{ratingImg}}" /><br/></strong><br/>
+				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><div style="display:none">{{rating}}</div><img src="{{ratingImg}}" /><br/></strong><br/>
 				   <br/>
 				   </div>
         </div>
