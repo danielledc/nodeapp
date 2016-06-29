@@ -12,13 +12,13 @@ angular.module('organicStores', [])
     $scope.clickedOnMap=false;
     $scope.showHome=true;
     $scope.zipCode="";
-    $scope.ratingImg;
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
 			.success(function(data) {
 				$scope.stores = data;
-				$scope.clickedOn = true;
+				$scope.ratingImg="";
+    				$scope.clickedOn = true;
 				$scope.showHome = false;
 				$("#containerWrap").css("height","auto");
 				$scope.clickedOnMap = false;
@@ -26,6 +26,7 @@ angular.module('organicStores', [])
 				$.each(data, function(key,value) {    
 					$http.get('/ratings?yelpID='+value.yelpID)
 						.success(function(data){
+								$scope.ratings=data;
 								console.log(data.rating_img_url);
 								$scope.ratingImg=data.rating_img_url;
 							    $scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
