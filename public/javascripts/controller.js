@@ -28,9 +28,7 @@ angular.module('organicStores', [])
 					$http.get('/ratings?yelpID='+value.yelpID)
 						.success(function(data){
 							$scope.stores[key].rating= data.rating;
-							console.log($scope.stores[key].rating)
-							$scope.ratingImg=data.rating_img_url;
-							$scope.rating=data.rating;
+							$scope.stores[key].ratingImg= data.rating_img_url;
 							$scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
 						})
 						.error(function(data) {
