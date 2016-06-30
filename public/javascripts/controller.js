@@ -5,6 +5,12 @@ angular.module('organicStores', [])
     $scope.clickedOnMap=false;
     $scope.showHome=true;
     $scope.zipCode="";
+    var mapOptions = {
+		 zoom: 11,
+		center:new google.maps.LatLng(40.745572,-74.1051107)
+    		}
+    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+		geocoder = new google.maps.Geocoder();
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
@@ -81,10 +87,7 @@ angular.module('organicStores', [])
 	$scope.plotPoints=function(longitude, latitude){
 			var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
-			map: new google.maps.Map(document.getElementById('map'), {
-					 zoom: 11,
-					center:new google.maps.LatLng(40.745572,-74.1051107)
-    				}),
+			map: $scope.map,
 			title: 'Hello World!'
 	});
 	}
@@ -116,12 +119,5 @@ angular.module('organicStores', [])
    
 
     }]);
-function initMap(){
-	var mapOptions = {
-		 zoom: 11,
-		center:new google.maps.LatLng(40.745572,-74.1051107)
-    		}
-    	myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
-		geocoder = new google.maps.Geocoder();
-}
+
 	
