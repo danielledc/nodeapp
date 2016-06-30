@@ -2,8 +2,8 @@
 angular.module('organicStores', [])
     .controller('mainController', ['$scope','$http', function mainController($scope, $http) {
 		var mapOptions = {
-        zoom: 12,
-		center:new google.maps.LatLng(40.7053111, -74.2581874)
+        zoom: 11,
+		center:new google.maps.LatLng(40.745572,-74.1051107)
     }
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
     $scope.geocoder = new google.maps.Geocoder();
