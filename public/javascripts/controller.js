@@ -38,24 +38,39 @@ angular.module('organicStores', [])
 				console.log('Error: ' + data);
 			});
 	}
-
-	$scope.listClosestStores=function(){
-	      	$scope.lat = '';
-    		$scope.lng = '';
-               // var address = {zipcode} or {city and state};
-               	geocoder = new google.maps.Geocoder();
+        $scope.getLatitude=function(){
+        	geocoder = new google.maps.Geocoder();
+		
+    		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+        		$scope.lat = results[0].geometry.location.lat();
+         		 return $scope.lat;
+                	
+		
+                } else {
+                //alert("Geocode was not successful for the following reason: " + status);
+		 }	
+        
+        }
+        $scope.getLongitude=function(){
+        	geocoder = new google.maps.Geocoder();
 		
     		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
         		$scope.lat = results[0].geometry.location.lat();
          		 $scope.lng = results[0].geometry.location.lng();
-                	 console.log($scope.lat+" "+$scope.lng)
+                	 return $scope.lng;
+                	
 		
                 } else {
                 //alert("Geocode was not successful for the following reason: " + status);
-		 }
-		});
-		$http.get('/closeststores?longitude='+$scope.lng+'&latitude='+$scope.lat)
+		 }	
+        
+        }
+	$scope.listClosestStores=function(){
+	      
+              
+		$http.get('/closeststores?longitude='+ $scope.getLongitude+'&latitude='+$scope.getLatitude)
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.clickedOn = true;
