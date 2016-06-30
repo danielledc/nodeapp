@@ -121,7 +121,9 @@ angular.module('organicStores', [])
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
-	       	google.maps.event.trigger($scope.map, 'resize');
+	       	    var center = $scope.map.getCenter();
+    		google.maps.event.trigger($scope.map, 'resize');
+		 $scope.map.setCenter(center); 
 		
 		$("#containerWrap").css("height","100%");
 	
