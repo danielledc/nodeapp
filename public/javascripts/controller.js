@@ -85,7 +85,10 @@ angular.module('organicStores', [])
 			var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
 			map: $scope.map,
-			title: 'Hello World!'
+		    var center =map.getCenter();
+    			google.maps.event.trigger(map, 'resize');
+			 $scope.map.setCenter(center); 
+		
 	});
 		 
 	}
@@ -124,10 +127,7 @@ angular.module('organicStores', [])
 			.error(function(data) {
 					console.log('Error: ' + data);
 		});
-	       	    var center = $scope.map.getCenter();
-    		google.maps.event.trigger($scope.map, 'resize');
-		 $scope.map.setCenter(center); 
-		
+	       	  
 		$("#containerWrap").css("height","100%");
 	
 		
