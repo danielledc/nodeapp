@@ -84,12 +84,13 @@ angular.module('organicStores', [])
 	$scope.plotPoints=function(longitude, latitude){
 			var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
-			map: $scope.map,
+			map: $scope.map
+			});
 		    var center =map.getCenter();
     			google.maps.event.trigger(map, 'resize');
 			 $scope.map.setCenter(center); 
 		
-	});
+	
 		 
 	}
 	$scope.initMap=function(){
