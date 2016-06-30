@@ -81,7 +81,10 @@ angular.module('organicStores', [])
 	$scope.plotPoints=function(longitude, latitude){
 			var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
-			map: myMap,
+			map: new google.maps.Map(document.getElementById('map'), {
+					 zoom: 11,
+					center:new google.maps.LatLng(40.745572,-74.1051107)
+    				}),
 			title: 'Hello World!'
 	});
 	}
