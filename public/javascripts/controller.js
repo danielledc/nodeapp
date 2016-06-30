@@ -11,6 +11,7 @@ angular.module('organicStores', [])
     		}
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		geocoder = new google.maps.Geocoder();
+	$scope.initMap();
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
@@ -92,15 +93,6 @@ angular.module('organicStores', [])
 	});
 	}
 	$scope.initMap=function(){
-			
-	
-	}
-	$scope.showMap=function(){
-		$scope.clickedOn = false;
-		$scope.clickedOnMap = true;
-		$scope.showHome = false;
-			
-		$("#containerWrap").css("height","100%");
 		$http.get('/stores')
 			.success(function(data) {
 				$.each(data, function(key,value) {  
@@ -110,7 +102,16 @@ angular.module('organicStores', [])
 			})
 			.error(function(data) {
 					console.log('Error: ' + data);
-			});
+		});	
+	
+	}
+	$scope.showMap=function(){
+		$scope.clickedOn = false;
+		$scope.clickedOnMap = true;
+		$scope.showHome = false;
+			
+		$("#containerWrap").css("height","100%");
+	
 		
 				
 		
