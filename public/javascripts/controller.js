@@ -69,7 +69,7 @@ angular.module('organicStores', [])
 	$scope.listClosestStores=function(){
 	      
               
-		$http.get('/closeststores?longitude='+ $scope.getLongitude+'&latitude='+$scope.getLatitude)
+		$http.get('/closeststores?longitude='+ $scope.getLongitude()+'&latitude='+$scope.getLatitude())
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.clickedOn = true;
