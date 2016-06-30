@@ -5,8 +5,8 @@ angular.module('organicStores', [])
     $scope.clickedOnMap=false;
     $scope.showHome=true;
     $scope.zipCode="";
-    $scope.lng=00.00;
-    $scope.lat=00.00;
+    $scope.lng=0;
+    $scope.lat=0;
   
 
     // when landing on the page, get all todos and show them
