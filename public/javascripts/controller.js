@@ -50,22 +50,21 @@ angular.module('organicStores', [])
                 } else {
                 //alert("Geocode was not successful for the following reason: " + status);
 		 }	
-        
+    		});
         }
         $scope.getLongitude=function(){
         	geocoder = new google.maps.Geocoder();
 		
     		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-        		$scope.lat = results[0].geometry.location.lat();
-         		 $scope.lng = results[0].geometry.location.lng();
+        		 $scope.lng = results[0].geometry.location.lng();
                 	 return $scope.lng;
                 	
 		
                 } else {
                 //alert("Geocode was not successful for the following reason: " + status);
 		 }	
-        
+    		});
         }
 	$scope.listClosestStores=function(){
 	      
