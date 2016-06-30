@@ -98,6 +98,9 @@ angular.module('organicStores', [])
 
 	}
 	$scope.showMap=function(){
+		$scope.clickedOn = false;
+		$scope.clickedOnMap = true;
+		$("#containerWrap").css("height","100%");
 		$http.get('/stores')
 			.success(function(data) {
 				$.each(data, function(key,value) {  
@@ -108,9 +111,7 @@ angular.module('organicStores', [])
 			.error(function(data) {
 					console.log('Error: ' + data);
 			});
-		$scope.clickedOn = false;
-		$scope.clickedOnMap = true;
-		$("#containerWrap").css("height","100%");
+		
 				
 		
   }
