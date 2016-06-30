@@ -27,7 +27,7 @@
 	 
 	 <script src="javascripts/controller.js"></script>
 	  <script src="javascripts/load-google-maps.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ykAUFdMhTM4OCGWQZYGOJJVqNyU2BYk&sensor=true&extension=.js" ></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ykAUFdMhTM4OCGWQZYGOJJVqNyU2BYk&extension=.js" ></script>
   </head>
   <body ng-controller="mainController">
 
@@ -80,7 +80,7 @@
 				   <br/>
 				   </div>
         </div>
-	<div   >
+	<div ng-show="clickedOnMap" >
 	<div id="toggleButtons"><button type="button" class="btn btn-primary" ng-click="showMap()" >Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
 	  </div>
 		<div id="map" class="col-sm-6"></div>
