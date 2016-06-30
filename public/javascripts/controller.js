@@ -38,8 +38,9 @@ angular.module('organicStores', [])
 				console.log('Error: ' + data);
 			});
 	}
-	$scope.convertToCoords=function(){
-		$scope.lat = '';
+
+	$scope.listClosestStores=function(){
+	      	$scope.lat = '';
     		$scope.lng = '';
                // var address = {zipcode} or {city and state};
                	geocoder = new google.maps.Geocoder();
@@ -54,10 +55,6 @@ angular.module('organicStores', [])
                 //alert("Geocode was not successful for the following reason: " + status);
 		 }
 		});
-    				
-	}
-	$scope.listClosestStores=function(){
-	      $scope.convertToCoords();
 		$http.get('/closeststores?longitude='+$scope.lng+'&latitude='+$scope.lat)
 			.success(function(data) {
 				$scope.stores = data;
