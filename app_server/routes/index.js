@@ -45,7 +45,14 @@ yelp.y.business(req.query.yelpID, function(err, data) {
 						});
 });
 router.get("/closeststores", function(req, res) {
+       var limit = req.query.limit || 10;
 
+    // get the max distance or set it to 8 kilometers
+    var maxDistance = req.query.distance || 8;
+
+    // we need to convert the distance to radians
+    // the raduis of Earth is approximately 6371 kilometers
+    maxDistance /= 6371;
     	var coords = [];
     	coords[0] = req.query.longitude;
     	coords[1] = req.query.latitude;  
