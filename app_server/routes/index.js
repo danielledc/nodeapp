@@ -41,10 +41,26 @@ router.get("/ratings", function(req, res) {
 
 yelp.y.business(req.query.yelpID, function(err, data) {
 						if (err) return console.log(error);
-						console.log(res.json(data));
-  
+					
 						});
 });
+router.get("/closeststores", function(req, res) {
 
+    	var coords = [];
+    	coords[0] = req.query.longitude;
+    	coords[1] = req.query.latitude;  
+        Loc.find({
+      		loc: {
+			 $near: coords,
+			$maxDistance: 20
+      }
+    }).limit(limit).exec(function(err, stores) {
+      if (err) {
+        return console.log(error);
+      }
+
+      res.json(stores);
+    });
+});
 
 module.exports = router;
