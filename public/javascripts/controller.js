@@ -100,6 +100,7 @@ $http.get('/stores')
 			map: $scope.map,
 			title: 'Hello World!'
 	});
+		 google.maps.event.trigger(map, "resize");
 	}
 	$scope.initMap=function(){
 		$http.get('/stores')
@@ -118,7 +119,7 @@ $http.get('/stores')
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
-		 google.maps.event.trigger(map, "resize");	
+		
 		$("#containerWrap").css("height","100%");
 	
 		
