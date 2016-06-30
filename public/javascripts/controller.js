@@ -11,6 +11,9 @@ angular.module('organicStores', [])
     		}
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		geocoder = new google.maps.Geocoder();
+   google.maps.event.addListenerOnce($scope.map, 'idle', function() {
+    google.maps.event.trigger($scope.map, 'resize');
+});
 $http.get('/stores')
 			.success(function(data) {
 				$.each(data, function(key,value) {  
@@ -119,9 +122,7 @@ $http.get('/stores')
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
-		google.maps.event.addListenerOnce($("#map"), 'idle', function() {
-    			google.maps.event.trigger($("#map"), 'resize');
-		});
+	
 		$("#containerWrap").css("height","100%");
 	
 		
