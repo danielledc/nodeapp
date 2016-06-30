@@ -1,12 +1,7 @@
 
 angular.module('organicStores', [])
     .controller('mainController', ['$scope','$http', function mainController($scope, $http) {
-		var mapOptions = {
-        zoom: 11,
-		center:new google.maps.LatLng(40.745572,-74.1051107)
-    }
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    $scope.geocoder = new google.maps.Geocoder();
+	
 
     $scope.clickedOn=false;
     $scope.clickedOnMap=false;
@@ -94,12 +89,18 @@ angular.module('organicStores', [])
 	}
 	$scope.initMap=function(){
 			
-	
-
+		var mapOptions = {
+		 zoom: 11,
+		center:new google.maps.LatLng(40.745572,-74.1051107)
+    		}
+    		$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+		 $scope.geocoder = new google.maps.Geocoder();
 	}
 	$scope.showMap=function(){
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
+		$scope.showHome = false;
+			
 		$("#containerWrap").css("height","100%");
 		$http.get('/stores')
 			.success(function(data) {
