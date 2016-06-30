@@ -11,7 +11,16 @@ angular.module('organicStores', [])
     		}
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		geocoder = new google.maps.Geocoder();
-	$scope.initMap();
+$http.get('/stores')
+			.success(function(data) {
+				$.each(data, function(key,value) {  
+					$scope.plotPoints(data[key].loc.longitude, data[key].loc.latitude);
+				})
+					
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+		});
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
