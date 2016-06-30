@@ -119,8 +119,8 @@ $http.get('/stores')
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
-		google.maps.event.addListenerOnce($scope.map, 'idle', function() {
-    			google.maps.event.trigger($scope.map, 'resize');
+		google.maps.event.addListenerOnce($("#map"), 'idle', function() {
+    			google.maps.event.trigger($("#map"), 'resize');
 		});
 		$("#containerWrap").css("height","100%");
 	
