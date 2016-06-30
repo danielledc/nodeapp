@@ -48,7 +48,7 @@ angular.module('organicStores', [])
 		if (status == google.maps.GeocoderStatus.OK) {
         		$scope.lat = results[0].geometry.location.lat();
          		 $scope.lng = results[0].geometry.location.lng();
-                	 
+                	 console.log($scope.lat+" "+$scope.lng)
 		
                 } else {
                 //alert("Geocode was not successful for the following reason: " + status);
@@ -58,7 +58,7 @@ angular.module('organicStores', [])
 	}
 	$scope.listClosestStores=function(){
 	      $scope.convertToCoords();
-		$http.get('/closeststores?longitude=&'+$scope.lng+'latitude='+$scope.lat)
+		$http.get('/closeststores?longitude='+$scope.lng+'&latitude='+$scope.lat)
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.clickedOn = true;
