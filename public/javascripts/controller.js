@@ -87,7 +87,7 @@ angular.module('organicStores', [])
 			map: $scope.map,
 			title: 'Hello World!'
 			});
-		    var center =map.getCenter();
+		    var center =$scope.map.getCenter();
     			google.maps.event.trigger(map, 'resize');
 			 $scope.map.setCenter(center); 
 		
