@@ -7,7 +7,7 @@ angular.module('organicStores', [])
     $scope.zipCode="";
     var mapOptions = {
 		 zoom: 11,
-		center:new google.maps.LatLng(40.745572,-74.1051107)
+		center:new google.maps.LatLng(40.799912,-74.01)
     		}
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		geocoder = new google.maps.Geocoder();
