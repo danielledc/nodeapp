@@ -1,13 +1,6 @@
 
 angular.module('organicStores', [])
     .controller('mainController', ['$scope','$http', function mainController($scope, $http) {
-		var mapOptions = {
-		 zoom: 11,
-		center:new google.maps.LatLng(40.745572,-74.1051107)
-    		}
-    		$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-		 $scope.geocoder = new google.maps.Geocoder();
-
     $scope.clickedOn=false;
     $scope.clickedOnMap=false;
     $scope.showHome=true;
@@ -45,7 +38,7 @@ angular.module('organicStores', [])
 		var lat = '';
     		var lng = '';
                // var address = {zipcode} or {city and state};
-    		$scope.geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
+    		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
         		 lat = results[0].geometry.location.lat();
          		 lng = results[0].geometry.location.lng();
@@ -88,7 +81,7 @@ angular.module('organicStores', [])
 	$scope.plotPoints=function(longitude, latitude){
 			var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
-			map: $scope.map,
+			map: myMap,
 			title: 'Hello World!'
 	});
 	}
@@ -120,6 +113,12 @@ angular.module('organicStores', [])
    
 
     }]);
-
-
+function initMap(){
+	var mapOptions = {
+		 zoom: 11,
+		center:new google.maps.LatLng(40.745572,-74.1051107)
+    		}
+    	myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+		geocoder = new google.maps.Geocoder();
+}
 	
