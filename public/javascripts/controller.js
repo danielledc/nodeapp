@@ -41,6 +41,8 @@ angular.module('organicStores', [])
 		$scope.lat = '';
     		$scope.lng = '';
                // var address = {zipcode} or {city and state};
+               	geocoder = new google.maps.Geocoder();
+		
     		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
         		$scope.lat = results[0].geometry.location.lat();
