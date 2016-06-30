@@ -29,7 +29,6 @@ angular.module('organicStores', [])
 						.success(function(data){
 							$scope.stores[key].rating= data.rating;
 							$scope.stores[key].ratingImg= data.rating_img_url;
-							$scope.plotPoints(data.location.coordinate.longitude, data.location.coordinate.latitude);
 						})
 						.error(function(data) {
 							console.log('Error: ' + data);
@@ -98,7 +97,17 @@ angular.module('organicStores', [])
 	
 
 	}
-	$scope.showMap=function(longitude, latitude){
+	$scope.showMap=function(){
+		$http.get('/stores')
+			.success(function(data) {
+				$.each(data, function(key,value) {  
+					$scope.plotPoints(data.loc.longitude, data.loc.latitude);
+				}
+					
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			});
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$("#containerWrap").css("height","100%");
