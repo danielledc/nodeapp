@@ -11,19 +11,8 @@ angular.module('organicStores', [])
     		}
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		geocoder = new google.maps.Geocoder();
-   google.maps.event.addListenerOnce($scope.map, 'idle', function() {
-    google.maps.event.trigger($scope.map, 'resize');
-});
-$http.get('/stores')
-			.success(function(data) {
-				$.each(data, function(key,value) {  
-					$scope.plotPoints(data[key].loc.longitude, data[key].loc.latitude);
-				})
-					
-			})
-			.error(function(data) {
-					console.log('Error: ' + data);
-		});
+  
+
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
@@ -119,10 +108,21 @@ $http.get('/stores')
 	
 	}
 	$scope.showMap=function(){
+		$http.get('/stores')
+			.success(function(data) {
+				$.each(data, function(key,value) {  
+					$scope.plotPoints(data[key].loc.longitude, data[key].loc.latitude);
+				})
+					
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+		});
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
-	
+	       	google.maps.event.trigger($scope.map, 'resize');
+		
 		$("#containerWrap").css("height","100%");
 	
 		
