@@ -38,38 +38,11 @@ angular.module('organicStores', [])
 				console.log('Error: ' + data);
 			});
 	}
-        $scope.getLatitude=function(){
-        	geocoder = new google.maps.Geocoder();
-		
-    		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-        		$scope.lat = results[0].geometry.location.lat();
-         		 return $scope.lat;
-                	
-		
-                } else {
-                //alert("Geocode was not successful for the following reason: " + status);
-		 }	
-    		});
-        }
-        $scope.getLongitude=function(){
-        	geocoder = new google.maps.Geocoder();
-		
-    		geocoder.geocode( { 'address': $scope.zipCode}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-        		 $scope.lng = results[0].geometry.location.lng();
-                	 return $scope.lng;
-                	
-		
-                } else {
-                //alert("Geocode was not successful for the following reason: " + status);
-		 }	
-    		});
-        }
+       
 	$scope.listClosestStores=function(){
 	      
               
-		$http.get('/closeststores?longitude='+ $scope.getLongitude()+'&latitude='+$scope.getLatitude())
+		$http.get('/closeststores?zip='+ $scope.zipCode)
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.clickedOn = true;
