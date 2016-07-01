@@ -1,5 +1,6 @@
 var express = require('express');
 var yelp = require('../models/yelp');
+var geocoder = require('simple-geocoder');
 
 
 var mongoose=require('mongoose');
@@ -57,9 +58,15 @@ router.get("/closeststores", function(req, res) {
     // we need to convert the distance to radians
     // the raduis of Earth is approximately 6371 kilometers
     maxDistance /= 6371;
+    geocoder.geocode(req.query.zipCode, function(success, locations) {
+	if(success) {
+		console.log("Location: ", locations.x, locations.y);
+	}
+});
     	var coords = [];
-    	coords[0] = req.query.longitude;
-    	coords[1] = req.query.latitude;  
+    	
+    	coords[0] = locations.x;
+    	coords[1] = locations.y;  
         Loc.find({
       		loc: {
 			 $near: coords,
