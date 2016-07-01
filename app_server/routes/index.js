@@ -61,24 +61,25 @@ router.get("/closeststores", function(req, res) {
     geocoder.geocode(req.query.zipCode, function(success, locations) {
 	if(success) {
 		console.log("Location: ", locations.x, locations.y);
-	}
-});
-    	var coords = [];
+		var coords = [];
     	
-    	coords[0] = locations.x;
-    	coords[1] = locations.y;  
-        Loc.find({
+    		coords[0] = locations.x;
+    		coords[1] = locations.y;  
+		 Loc.find({
       		loc: {
 			 $near: coords,
 			$maxDistance: 20
-      }
-    }).limit(limit).exec(function(err, stores) {
-      if (err) {
-        return console.log(error);
-      }
+		 }
+    		}).limit(limit).exec(function(err, stores) {
+      		if (err) {
+        		return console.log(error);
+      		}
 
-      res.json(stores);
-    });
+      		res.json(stores);
+    		});
+	}
+	});
+    	
 });
 
 module.exports = router;
