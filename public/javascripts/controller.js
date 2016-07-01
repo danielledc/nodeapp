@@ -42,7 +42,7 @@ angular.module('organicStores', [])
 	$scope.listClosestStores=function(){
 	      
               
-		$http.get('/closeststores?zip='+ $scope.zipCode)
+		$http.get('/closeststores?zipCode='+ $scope.zipCode)
 			.success(function(data) {
 				$scope.stores = data;
 				$scope.clickedOn = true;
