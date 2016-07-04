@@ -97,7 +97,7 @@ angular.module('organicStores', [])
 			.success(function(data) {
 				$.each(data, function(key,value) {  
 					console.log(data[key].loc.longitude)
-					$scope.plotPoints(data[key].loc.longitude, data[key].loc.latitude);
+					$scope.plotPoints(data[key].loc[0]], data[key].loc[1]]);
 				})
 					
 			})
