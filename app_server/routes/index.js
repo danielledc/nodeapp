@@ -45,8 +45,8 @@ router.get("/stores", function(req, res) {
 router.get("/ratings", function(req, res) {
 
 yelp.y.business(req.query.yelpID, function(err, data) {
-						if (err) return console.log(error);
-					
+						if (err) return console.log(err);
+					        console.log(data)
 						});
 });
 router.get("/closeststores", function(req, res) {
