@@ -14,7 +14,10 @@ var locationSchema=new mongoose.Schema({
 	phone: String,
 	website: String,
 	borough: String,
-
+        loc: {
+	  type: [Number],  // [<longitude>, <latitude>]
+	   index: '2dsphere'      // create the geospatial index
+    	},
 	hours: String
 	
 	
