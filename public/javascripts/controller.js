@@ -80,19 +80,7 @@ angular.module('organicStores', [])
 	
 		 
 	}
-	$scope.initMap=function(){
-		$http.get('/stores')
-			.success(function(data) {
-				$.each(data, function(key,value) {  
-					$scope.plotPoints(data[key].loc.longitude, data[key].loc.latitude);
-				})
-					
-			})
-			.error(function(data) {
-					console.log('Error: ' + data);
-		});	
-	
-	}
+
 	$scope.showMap=function(){
 		
 		$scope.clickedOn = false;
@@ -108,6 +96,7 @@ angular.module('organicStores', [])
 		$http.get('/stores')
 			.success(function(data) {
 				$.each(data, function(key,value) {  
+					console.log(data[key].loc.longitude)
 					$scope.plotPoints(data[key].loc.longitude, data[key].loc.latitude);
 				})
 					
