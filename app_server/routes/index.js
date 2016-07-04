@@ -16,7 +16,7 @@ var locationSchema=new mongoose.Schema({
 	borough: String,
 	loc: {
 	  type: [Number],  // [<longitude>, <latitude>]
-	   index: '2d'      // create the geospatial index
+	   index: '2dsphere'      // create the geospatial index
     	},
 	hours: String
 	
