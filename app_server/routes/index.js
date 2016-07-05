@@ -74,7 +74,7 @@ router.get("/closeststores", function(req, res) {
 		 }
     		}).limit(limit).exec(function(err, stores) {
       		if (err) {
-        		return console.log(error);
+        		res.send(err);
       		}
 
       		res.json(stores);
