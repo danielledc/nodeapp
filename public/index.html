@@ -69,14 +69,29 @@
 	    <br/> <br/>
 	    <form class="form-inline"><label for="pwd">Sort  By:</label><select class="form-control" ng-model="sortBy">
             
-            <option value="storeName">Name</option>
-           <option value="rating">Rating</option>
-        </select>
+            	<option value="storeName">Name</option>
+           	<option value="rating">Rating</option>
+        	</select>
+		 <label for="city">Show Stores In: </label> <div class="checkbox">
+  			<label><input type="checkbox" value="Manhattan" class="form-control" ng-model="borough">Manhattan</label>
+		</div>
+		<div class="checkbox">
+		 	<label><input type="checkbox" value="Bronx" class="form-control" ng-model="borough">Bronx</label>
+		</div>
+		<div class="checkbox">
+			 <label><input type="checkbox" value="Brooklyn" class="form-control" ng-model="borough">Brooklyn</label>
+		</div>
+		<div class="checkbox">
+			 <label><input type="checkbox" value="Queens" class="form-control" ng-model="borough">Queens</label>
+		</div>
+		<div class="checkbox">
+			 <label><input type="checkbox" value="Staten Island" class="form-control" ng-model="borough">Staten Island</label>
+		</div>
         </form>
 	     </div>
 	    
-             <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy">    <strong> {{store.storeName}}<br/>
-				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><div style="display:none">{{store.rating}}</div><img src="{{store.ratingImg}}" /><br/></strong><br/>
+             <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy | filter:{store.borough}:borough">    <strong> {{store.storeName}}<br/>
+				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><div style="display:none">{{store.rating}}{{store.borough}}</div><img src="{{store.ratingImg}}" /><br/></strong><br/>
 				   <br/>
 				   </div>
         </div>
