@@ -73,16 +73,16 @@
            	<option value="rating">Rating</option>
         	</select>
 		 <label for="city">Show Stores In: </label> 
-  			<label class="checkbox-inline"><input type="checkbox" value="Manhattan"  ng-model="borough">Manhattan</label>
-		 	<label class="checkbox-inline"><input type="checkbox" value="Bronx"  ng-model="borough">Bronx</label>
-			 <label class="checkbox-inline"><input type="checkbox" value="Brooklyn"  ng-model="borough">Brooklyn</label>
-			 <label class="checkbox-inline"><input type="checkbox" value="Queens"  ng-model="borough">Queens</label>
-			 <label class="checkbox-inline"><input type="checkbox" value="Staten Island"  ng-model="borough">Staten Island</label>
+  			<label><input type="checkbox" value="Manhattan"  ng-model="showBoroughs['Manhattan']">Manhattan</label>
+		 	<label ><input type="checkbox" value="Bronx"  ng-model="showBoroughs['Bronx']">Bronx</label>
+			 <label ><input type="checkbox" value="Brooklyn"  ng-model="showBoroughs['Brooklyn]>Brooklyn</label>
+			 <label ><input type="checkbox" value="Queens"  ng-model="showBoroughs['Queens']">Queens</label>
+			 <label ><input type="checkbox" value="Staten Island"  ng-model="showBoroughs['Staten Island']">Staten Island</label>
 	
 		 </form>
 	     </div>
 	    
-             <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy | filter:{borough:borough}">    <strong> {{store.storeName}}<br/>
+             <div class="col-sm-12"  ng-repeat="store in stores | orderBy:sortBy | filter:filterBorough">    <strong> {{store.storeName}}<br/>
 				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><div style="display:none">{{store.rating}}{{store.borough}}</div><img src="{{store.ratingImg}}" /><br/></strong><br/>
 				   <br/>
 				   </div>
