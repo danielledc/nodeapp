@@ -5,10 +5,14 @@ angular.module('organicStores', [])
     $scope.clickedOnMap=false;
     $scope.showHome=true;
     $scope.zipCode="";
-    $scope.lng=0;
-    $scope.lat=0;
-  
-
+    $scope.showBoroughs = {
+    'Brooklyn': true,
+    'Bronx': true,
+    'Manhattan': true,
+    'Queens': true,
+    'Staten Island': true
+  };
+ 
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
@@ -91,7 +95,7 @@ angular.module('organicStores', [])
 		center: {lat: 40.799912, lng: -74.01}//new google.maps.LatLng(40.799912,-74.01)
     		}
     		
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+		 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		geocoder = new google.maps.Geocoder();
 		$http.get('/stores')
 			.success(function(data) {
@@ -107,10 +111,14 @@ angular.module('organicStores', [])
 	       	  
 		$("#containerWrap").css("height","100%");
 	
-		
-				
-		
-  }
+
+	}
+	
+	//filter
+         $scope.filterBoroughs = function (store) {
+		 return $scope.showBoroughs[store.borough];
+  	};
+	  
 
    
 
