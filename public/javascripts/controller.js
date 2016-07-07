@@ -13,6 +13,18 @@ angular.module('organicStores', [])
     'Staten Island': true
   };
  
+      $scope.validateZip=function(){
+           var isValid = /^[0-9]{5}$/.test($scope.zipCode);
+            if (!isValid) {
+                $("#error").html("Please enter a valid zip code")
+                
+            } else {
+                document.getElementById("ErrorDiv").innerHTML = "";
+                $scope.listStores();
+            }
+       	
+      }
+      }
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$http.get('/stores')
