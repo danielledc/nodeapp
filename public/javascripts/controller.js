@@ -22,8 +22,7 @@ angular.module('organicStores', [])
                 document.getElementById("ErrorDiv").innerHTML = "";
                 $scope.listStores();
             }
-       	
-      }
+     
       }
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
