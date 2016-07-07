@@ -19,7 +19,7 @@ angular.module('organicStores', [])
                 $("#error").html("Please enter a valid zip code")
                 
             } else {
-                document.getElementById("ErrorDiv").innerHTML = "";
+                $("#error").html("")
                 $scope.listStores();
             }
      
