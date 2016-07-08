@@ -120,7 +120,7 @@ angular.module('organicStores', [])
 					console.log('Error: ' + data);
 		});
 	       	  
-		$("#containerWrap").css("height","500px");
+		$("#containerWrap").css("height","800px");
 		
 
 	}
