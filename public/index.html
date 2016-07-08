@@ -3,20 +3,20 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/bootstrap/flatly/css/bootstrap.min.css" >
     <link rel="stylesheet" href="/stylesheets/style.css">
       <!-- Custom Google Web Font -->
-    <link href="/bootstrap/css/business-casual.css" rel="stylesheet">
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href="/bootstrap/flatly/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 	
     <!-- Custom CSS-->
-    <!--<link href="/bootstrap/flatly/css/general.css" rel="stylesheet">
+    <link href="/bootstrap/flatly/css/general.css" rel="stylesheet">
 	<link href="/bootstrap/flatly/css/custom.css" rel="stylesheet">
 	<link href="/bootstrap/flatly/css/owl.carousel.css" rel="stylesheet">
 	<link href="/bootstrap/flatly/css/owl.theme.css" rel="stylesheet">
 	<link href="/bootstrap/flatly/css/style.css" rel="stylesheet">
-	<link href="/bootstrap/flatly/css/animate.css" rel="stylesheet">-->
+	<link href="/bootstrap/flatly/css/animate.css" rel="stylesheet">
 	 
     <script src="/javascripts/jquery-2.2.4.min.js"></script>
      <script src="node_modules/angular/angular.js"></script>
@@ -30,8 +30,8 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ykAUFdMhTM4OCGWQZYGOJJVqNyU2BYk&extension=.js" ></script>
   </head>
   <body ng-controller="mainController">
- <div class="brand">NYC Organic Markets</div>
-  <nav class="navbar-default" role="navigation">
+
+  <nav class="navbar-default" style="position:fixed" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -40,22 +40,17 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
 	</button>
+	<a class="navbar-brand" href="/">NYC Organic Markets</a>
 	</div>
-	<!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                   
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+	<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+	<ul class="nav navbar-nav">
+	<li class="menuItem"><a href="/about">About</a></li>
+	</ul>
+	</div>
 	</div>
 	</nav>
-  <br/><br/>
+
   <div class="container" id="containerWrap" >
-   <div class="box">
     <div class="row">
 	  <div class="col-sm-12" id="homeWrap" ng-show="showHome" >
 	  	<h1>Find organic food throughout NYC <br/>
@@ -100,7 +95,7 @@
 		<div id="map" class="col-sm-6"></div>
 	</div>			
     </div>
-   </div>	
+	
   </div>
   <footer>
 	<div class="container">
