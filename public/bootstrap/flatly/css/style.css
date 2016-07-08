@@ -215,9 +215,12 @@ body {
   line-height: 1.72222;
   color: #34495e;
   /*background-color: #ffffff;*/
-  	background: url(../../../images/stock-photo-57991508-healthy-organic-vegetables-on-a-wooden-background.png) no-repeat top center;
-       
-	position:fixed;	
+  	background: url(../../../images/stock-photo-57991508-healthy-organic-vegetables-on-a-wooden-background.png) no-repeat center center fixed;
+       -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
 }
 a {
   color: #34495e;
