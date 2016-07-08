@@ -26,10 +26,7 @@ body { padding-top: 60px; }
 	padding-bottom:20px;
 }
 #homeWrap{
-position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  
+
   
 }
 footer{
