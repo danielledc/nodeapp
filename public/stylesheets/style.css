@@ -36,3 +36,7 @@ transform: translateY(-50%);
 footer{
 	position:relative;
 }
+.navbar-brand{
+	position:absolute;	
+}
+}
