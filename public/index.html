@@ -70,20 +70,21 @@
 		<div id="toggleButtons"><button type="button" class="btn btn-primary" ng-click="showMap()">Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
 	    <br/> <br/>
 	    <form class="form-inline">
-	    	<div class="col-xs-2">
+	    	<div class="col-xs-3">
 	    		<label for="pwd">Sort  By:</label><select class="form-control" ng-model="sortBy">
             		<option value="" selected>--Select--</option>
            		<option value="storeName">Name</option>
            		<option value="rating">Rating</option>
         	</select>
         	</div>
-		 <label for="city">Show Stores In: </label> 
+        	<div class="col-xs-3">
+		 	<label for="city">Show Stores In: </label> 
   			<label><input type="checkbox" value="Manhattan"  ng-model="showBoroughs['Manhattan']">Manhattan</label>
 		 	<label ><input type="checkbox" value="Bronx"  ng-model="showBoroughs['Bronx']">Bronx</label>
 			 <label ><input type="checkbox" value="Brooklyn"  ng-model="showBoroughs['Brooklyn']">Brooklyn</label>
 			 <label ><input type="checkbox" value="Queens"  ng-model="showBoroughs['Queens']">Queens</label>
 			 <label ><input type="checkbox" value="Staten Island"  ng-model="showBoroughs['Staten Island']">Staten Island</label>
-	
+		</div>
 		 </form>
 	     </div>
 	    
