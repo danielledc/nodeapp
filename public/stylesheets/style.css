@@ -3,6 +3,13 @@ body {
 
 }
 
+.form-control{
+	margin:0px auto;
+	left:0px;
+	right:0px;
+	width:50%;
+
+}
 #storeList{
 	display:none;
 }
