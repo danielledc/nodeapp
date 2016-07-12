@@ -2,13 +2,13 @@ body {
 	padding-top: 60px; 
 
 }
-#spinner{
+.ng-isolate-scope{
  height:100%;
  background-color:#fff; 
  width: 100%;  
  opacity:0.5; 
  position:absolute;
- z-index:10	
+ z-index:10;	
  text-align:center;
 }
 #storeList{
