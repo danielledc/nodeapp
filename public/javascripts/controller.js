@@ -1,7 +1,7 @@
 
 angular.module('organicStores', ['angularSpinners'])
     .controller('mainController', ['$scope','$http', function mainController($scope, $http) {
-    $scope.loading = true;
+    $scope.loading = false;
     $scope.clickedOn=false;
     $scope.clickedOnMap=false;
     $scope.showHome=true;
@@ -27,6 +27,7 @@ angular.module('organicStores', ['angularSpinners'])
       }
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
+		$scope.loading=true;
 		$http.get('/stores')
 			.success(function(data) {
 				$scope.stores = data;
