@@ -1,6 +1,7 @@
 
-angular.module('organicStores', [])
+angular.module('organicStores', ['angularSpinners'])
     .controller('mainController', ['$scope','$http', function mainController($scope, $http) {
+    $scope.loading = true;
     $scope.clickedOn=false;
     $scope.clickedOnMap=false;
     $scope.showHome=true;
@@ -51,7 +52,11 @@ angular.module('organicStores', [])
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
-			});
+			})
+			.finally(function () {
+				 $scope.loading = false;
+    });
+			;
 	}
        
 	$scope.listClosestStores=function(){
