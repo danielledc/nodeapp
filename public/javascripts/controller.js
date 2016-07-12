@@ -25,6 +25,7 @@ angular.module('organicStores', ['angularSpinners'])
             }
      
       }
+      
     // when landing on the page, get all todos and show them
 	$scope.listStores=function(){
 		$scope.loading=true;
