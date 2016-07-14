@@ -92,8 +92,8 @@ angular.module('organicStores', ['angularSpinners'])
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
 		 var mapOptions = {
-		 zoom: 11,
-		center: {lat: 41.799912, lng: -73.99}//new google.maps.LatLng(40.799912,-74.01)
+		 zoom: 10,
+		center: {lat: 40.799912, lng: -73.99}//new google.maps.LatLng(40.799912,-74.01)
     		}
     		
 		 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
