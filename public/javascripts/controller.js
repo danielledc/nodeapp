@@ -26,31 +26,32 @@ angular.module('organicStores', ['angularSpinners'])
      
       }
       
-    // when landing on the page, get all todos and show them
-	$scope.listStores=function(){
-		$scope.loading=true;
-		$http.get('/stores')
-			.success(function(data) {
-				$scope.stores = data;
-				$scope.ratingImg="";
-				$scope.rating="";
-    				$scope.clickedOn = true;
-				$scope.showHome = false;
-				$("#containerWrap").css("height","auto");
-				$scope.clickedOnMap = false;
+      $scope.getRatings=function(data){
+      		$scope.stores = data;
+		$scope.ratingImg="";
+		$scope.rating="";
+    		$scope.clickedOn = true;
+		$scope.showHome = false;
+		$("#containerWrap").css("height","auto");
+		$scope.clickedOnMap = false;
 		
-				$.each(data, function(key,value) {    
-					$http.get('/ratings?yelpID='+value.yelpID)
-						.success(function(data){
+		$.each(data, function(key,value) {    
+				$http.get('/ratings?yelpID='+value.yelpID)
+					.success(function(data){
 							$scope.stores[key].rating= data.rating;
 							$scope.stores[key].ratingImg= data.rating_img_url;
 						})
 						.error(function(data) {
 							console.log('Error: ' + data);
 						});		
-				});    
-				
-				//console.log(data);
+		});   	
+      }
+    // when landing on the page, get all todos and show them
+	$scope.listStores=function(){
+		$scope.loading=true;
+		$http.get('/stores')
+			.success(function(data) {
+				$scope.getRatings(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
@@ -65,24 +66,7 @@ angular.module('organicStores', ['angularSpinners'])
 	      	$scope.loading=true;
 		$http.get('/closeststores?zipCode='+ $scope.zipCode)
 			.success(function(data) {
-				$scope.stores = data;
-				$scope.clickedOn = true;
-				$scope.showHome = false;
-				$("#containerWrap").css("height","auto");
-				$scope.clickedOnMap = false;
-		
-				$.each(data, function(key,value) {    
-					$http.get('/ratings?yelpID='+value.yelpID)
-						.success(function(data){
-								console.log(data.rating_img_url);
-								$scope.ratingImg=data.rating_img_url;
-						})
-						.error(function(data) {
-							console.log('Error: ' + data);
-						});		
-				});    
-				
-				//console.log(data);
+			        $scope.getRatings(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
