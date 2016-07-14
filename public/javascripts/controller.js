@@ -75,15 +75,29 @@ angular.module('organicStores', ['angularSpinners'])
 				 $scope.loading = false;
 			});
 	}
-	$scope.plotPoints=function(longitude, latitude){
-			var marker = new google.maps.Marker({
+	$scope.plotPoints=function(longitude, latitude, storeName, address){
+		
+		 var contentString = '<div id="content">'+
+            
+        		  '<h1 id="firstHeading" class="firstHeading">'+storeName+'</h1>'+
+        		 '<div id="bodyContent">'+ '<p>'+address+'</p>'+ '</div>'+  '</div>';
+
+        	var infowindow = new google.maps.InfoWindow({
+          		content: contentString
+		 });
+
+       		var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
 			map: $scope.map,
 			title: 'Hello World!'
-			});
-		    var center =$scope.map.getCenter();
-    			google.maps.event.trigger(map, 'resize');
-			 $scope.map.setCenter(center); 
+		});
+		 marker.addListener('click', function() {
+        		 infowindow.open(map, marker);
+        	});
+
+		var center =$scope.map.getCenter();
+    		google.maps.event.trigger(map, 'resize');
+		$scope.map.setCenter(center); 
 	}
 
 	$scope.showMap=function(){
@@ -102,7 +116,7 @@ angular.module('organicStores', ['angularSpinners'])
 			.success(function(data) {
 				$.each(data, function(key,value) {  
 					console.log(data[key].loc[0])
-					$scope.plotPoints(data[key].loc[0], data[key].loc[1]);
+					$scope.plotPoints(data[key].loc[0], data[key].loc[1], data[key].storeName, data[key].address);
 				})
 					
 			})
