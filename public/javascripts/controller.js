@@ -46,7 +46,7 @@ angular.module('organicStores', ['angularSpinners'])
 						});		
 		});   	
       }
-    // when landing on the page, get all todos and show them
+ 
 	$scope.listStores=function(){
 		$scope.loading=true;
 		$http.get('/stores')
@@ -93,7 +93,7 @@ angular.module('organicStores', ['angularSpinners'])
 		$scope.showHome = false;
 		 var mapOptions = {
 		 zoom: 11,
-		center: {lat: 40.799912, lng: -74.01}//new google.maps.LatLng(40.799912,-74.01)
+		center: {lat: 40.799912, lng: -64.01}//new google.maps.LatLng(40.799912,-74.01)
     		}
     		
 		 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
