@@ -79,7 +79,7 @@ angular.module('organicStores', ['angularSpinners'])
 		
 		 var contentString = '<div id="content">'+
             
-        		  '<h1 id="firstHeading" class="firstHeading">'+storeName+'</h1>'+
+        		  '<h5 id="firstHeading" class="firstHeading">'+storeName+'</h5>'+
         		 '<div id="bodyContent">'+ '<p>'+address+'</p>'+ '</div>'+  '</div>';
 
         	var infowindow = new google.maps.InfoWindow({
@@ -88,8 +88,8 @@ angular.module('organicStores', ['angularSpinners'])
 
        		var marker = new google.maps.Marker({
 			position: {lat: latitude, lng: longitude},
-			map: $scope.map,
-			title: 'Hello World!'
+			map: $scope.map
+		
 		});
 		 marker.addListener('click', function() {
         		 infowindow.open(map, marker);
