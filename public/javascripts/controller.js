@@ -21,7 +21,7 @@ angular.module('organicStores', ['angularSpinners'])
                 
             } else {
                 $("#error").html("")
-                $scope.listStores();
+                $scope.listClosestStores();
             }
      
       }
@@ -57,13 +57,12 @@ angular.module('organicStores', ['angularSpinners'])
 			})
 			.finally(function () {
 				 $scope.loading = false;
-    });
-			;
+			});
+		
 	}
        
 	$scope.listClosestStores=function(){
-	      
-              
+	      	$scope.loading=true;
 		$http.get('/closeststores?zipCode='+ $scope.zipCode)
 			.success(function(data) {
 				$scope.stores = data;
@@ -87,6 +86,9 @@ angular.module('organicStores', ['angularSpinners'])
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
+			})
+			.finally(function () {
+				 $scope.loading = false;
 			});
 	}
 	$scope.plotPoints=function(longitude, latitude){
@@ -98,13 +100,10 @@ angular.module('organicStores', ['angularSpinners'])
 		    var center =$scope.map.getCenter();
     			google.maps.event.trigger(map, 'resize');
 			 $scope.map.setCenter(center); 
-		
-	
-		 
 	}
 
 	$scope.showMap=function(){
-		
+		$scope.loading=true;
 		$scope.clickedOn = false;
 		$scope.clickedOnMap = true;
 		$scope.showHome = false;
@@ -125,20 +124,19 @@ angular.module('organicStores', ['angularSpinners'])
 			})
 			.error(function(data) {
 					console.log('Error: ' + data);
-		});
+			})
+			.finally(function () {
+				 $scope.loading = false;
+			});
 	       	  
 		$("#containerWrap").css("height","800px");
 		
-
 	}
 	
 	//filter
          $scope.filterBoroughs = function (store) {
 		 return $scope.showBoroughs[store.borough];
   	};
-	  
-
-   
 
     }]);
 
