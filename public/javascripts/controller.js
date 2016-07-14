@@ -113,7 +113,7 @@ angular.module('organicStores', ['angularSpinners'])
 				 $scope.loading = false;
 			});
 	       	  
-		$("#containerWrap").css("height","800px");
+		$("#containerWrap").css("height","900px");
 		
 	}
 	
