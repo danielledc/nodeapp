@@ -7,7 +7,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
                 controller  : 'aboutController'
             })
             .otherwise({
-		 templateUrl: 'main.html',
+		 templateUrl: '/main.html',
 	  	 controller: 'mainController'
        	    });
 	 });
