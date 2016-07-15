@@ -1,6 +1,7 @@
+var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinners']);
 
-angular.module('organicStores', ['angularSpinners'])
-    .controller('mainController', ['$scope','$http', function mainController($scope, $http) {
+
+    organicStores.controller('mainController', ['$scope','$http', function mainController($scope, $http) {
     $scope.loading = false;
     $scope.clickedOn=false;
     $scope.clickedOnMap=false;
@@ -13,7 +14,17 @@ angular.module('organicStores', ['angularSpinners'])
     'Queens': true,
     'Staten Island': true
   };
- 
+     organicStores.config(function($routeProvider) {
+        $routeProvider.when('/about', {
+                templateUrl : '/about.html',
+                controller  : 'aboutController'
+            })
+
+          
+    });
+    organicStores.controller('aboutController', function($scope) {
+        $scope.message = 'Look! I am an about page.';
+    });
       $scope.validateZip=function(){
            var isValid = /^[0-9]{5}$/.test($scope.zipCode);
             if (!isValid) {
