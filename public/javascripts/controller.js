@@ -1,7 +1,7 @@
 var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinners']);
 
 
-    organicStores.controller('mainController', ['$scope','$http', function($scope, $http) {
+    organicStores.controller('mainController', function($scope, $http) {
 	    $scope.loading = false;
 	    $scope.clickedOn=false;
 	    $scope.clickedOnMap=false;
@@ -137,7 +137,7 @@ var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinne
 			 return $scope.showBoroughs[store.borough];
 	  	};
 
-    }]);
+    });
     
      organicStores.config(function($routeProvider) {
        $routeProvider
