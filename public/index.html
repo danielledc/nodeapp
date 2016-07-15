@@ -29,7 +29,7 @@
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ykAUFdMhTM4OCGWQZYGOJJVqNyU2BYk&extension=.js" ></script>
   </head>
-  <body ng-controller="mainController">
+  <body >
  
   <nav class="navbar-default" style="position:fixed" role="navigation">
 	<div class="container">
@@ -40,17 +40,17 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
 	</button>
-<p class="navbar-brand">NYC Organic Markets</p>
+<a class="navbar-brand" href="/">NYC Organic Markets</a>
 	</div>
 	<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 	<ul class="nav navbar-nav">
-	<li class="menuItem">	<a class="navbar-brand" href="/">Home</a></li>
+	<li class="menuItem">	<a class="navbar-brand" href="/about">About</a></li>
 	</ul>
 	</div>
 	</div>
 	</nav>
 
-  <div class="container" id="containerWrap" >
+  <div class="container" id="containerWrap" ng-controller="mainController" >
     <div class="row">
     <spinner name="mySpinner" show="loading" style=""><div style="height:100%; background-color:#fff;  width: 100%;  opacity:0.5;  position:absolute; z-index:10;text-align:center"><img src="images/spinner.gif" style="position:absolute;top:50%"/></div></spinner>
 	  <div class="col-sm-12" id="homeWrap" ng-show="showHome" >
@@ -97,12 +97,12 @@
 		<div id="map" class="col-sm-6"></div>
 	</div>			
     </div>
-  <div class="jumbotron text-center">
+   </div>
+  <div ng-controller="aboutController" class="jumbotron text-center">
         <h1>About Page</h1>
 
         <p>{{ message }}</p>
-    </div>	
-  </div>
+    </div>
   <footer>
 	<div class="container">
 	<div class="row">
