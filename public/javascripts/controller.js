@@ -61,7 +61,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	 
 		$scope.listStores=function(){
 			$scope.loading=true;
-			$http.get('/stores')
+			$http.get('/api/stores')
 				.success(function(data) {
 					$scope.getRatings(data);
 				})
@@ -76,7 +76,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	       
 		$scope.listClosestStores=function(){
 		      	$scope.loading=true;
-			$http.get('/closeststores?zipCode='+ $scope.zipCode)
+			$http.get('/api/closeststores?zipCode='+ $scope.zipCode)
 				.success(function(data) {
 				        $scope.getRatings(data);
 				})
@@ -124,7 +124,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	    		
 			 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 			geocoder = new google.maps.Geocoder();
-			$http.get('/stores')
+			$http.get('/api/stores')
 				.success(function(data) {
 					$.each(data, function(key,value) {  
 						console.log(data[key].loc[0])
