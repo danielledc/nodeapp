@@ -5,7 +5,7 @@ var geocoder = require('simple-geocoder');
 
 var mongoose=require('mongoose');
 var router = express.Router();
-var ctrlOthers = require('../controllers/others');
+
 
 var locationSchema=new mongoose.Schema({
 	storeName: String,
