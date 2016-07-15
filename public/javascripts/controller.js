@@ -144,6 +144,9 @@ var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinne
                 templateUrl : '/about.html',
                 controller  : 'aboutController'
             })
+            .otherwise({
+		 redirectTo: '/'
+       	    });
 
           
     });
