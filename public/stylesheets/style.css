@@ -3,6 +3,10 @@ body {
 
 }
 
+#about{
+	text-align:left;	
+
+}
 .form-control{
 	margin:0px auto;
 	left:0px;
