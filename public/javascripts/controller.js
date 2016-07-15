@@ -100,6 +100,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	
 	       		var marker = new google.maps.Marker({
 				position: {lat: latitude, lng: longitude},
+				icon: "../images/Shiny-Red-Apple-32x32.png",
 				map: $scope.map
 			
 			});
