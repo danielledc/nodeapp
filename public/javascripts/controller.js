@@ -2,22 +2,17 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
    
      organicStores.config(function($routeProvider) {
        $routeProvider
-       	.when('/', {
-	  templateUrl: 'main.html',
-	  controller: 'mainController'
-        })
-        .when('/about', {
+         .when('/about', {
                 templateUrl : '/about.html',
                 controller  : 'aboutController'
             })
             .otherwise({
-		 redirectTo: '/'
+		 templateUrl: 'main.html',
+	  	 controller: 'mainController'
        	    });
+	 });
 
-          
-    });
-
-    organicStores.controller('mainController', function($scope, $http) {
+      organicStores.controller('mainController', function($scope, $http) {
 	    $scope.loading = false;
 	    $scope.clickedOn=false;
 	    $scope.clickedOnMap=false;
