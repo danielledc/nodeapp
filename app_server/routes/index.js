@@ -29,8 +29,6 @@ var homepageController= function(req, res){
 	res.render('index', { title: 'Express' });
 }
 
-router.get('/about/', ctrlOthers.about);
-
 router.get("/stores", function(req, res) {
 	 Loc.find(function(err, stores) {
 
