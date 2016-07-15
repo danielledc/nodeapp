@@ -1,5 +1,21 @@
 var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinners']);
+   
+     organicStores.config(function($routeProvider) {
+       $routeProvider
+       	.when('/', {
+	  templateUrl: 'main.html',
+	  controller: 'mainController'
+        })
+        .when('/about', {
+                templateUrl : '/about.html',
+                controller  : 'aboutController'
+            })
+            .otherwise({
+		 redirectTo: '/'
+       	    });
 
+          
+    });
 
     organicStores.controller('mainController', function($scope, $http) {
 	    $scope.loading = false;
@@ -139,22 +155,7 @@ var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinne
 
     });
     
-     organicStores.config(function($routeProvider) {
-       $routeProvider
-       	.when('/', {
-	  templateUrl: 'main.html',
-	  controller: 'mainController'
-        })
-        .when('/about', {
-                templateUrl : '/about.html',
-                controller  : 'aboutController'
-            })
-            .otherwise({
-		 redirectTo: '/'
-       	    });
-
-          
-    });
+    
     organicStores.controller('aboutController', function($scope) {
         $scope.message = 'Look! I am an about page.';
     });
