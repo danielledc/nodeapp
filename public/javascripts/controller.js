@@ -140,7 +140,12 @@ var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinne
     }]);
     
      organicStores.config(function($routeProvider) {
-        $routeProvider.when('/about', {
+       $routeProvider
+       	.when('/', {
+	  templateUrl: 'main.html',
+	  controller: 'mainController'
+        })
+        .when('/about', {
                 templateUrl : '/about.html',
                 controller  : 'aboutController'
             })
