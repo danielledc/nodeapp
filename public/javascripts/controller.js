@@ -1,7 +1,7 @@
 var organicStores = angular.module('organicStores', ['ngRoute'], ['angularSpinners']);
 
 
-    organicStores.controller('mainController', ['$scope','$http', function mainController($scope, $http) {
+    organicStores.controller('mainController', ['$scope','$http', function($scope, $http) {
 	    $scope.loading = false;
 	    $scope.clickedOn=false;
 	    $scope.clickedOnMap=false;
