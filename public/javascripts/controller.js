@@ -54,7 +54,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 								$scope.stores[key].ratingImg= data.rating_img_url;
 							},function(data) {
 								console.log('Error: ' + data);
-							});
+							})
 						 .finally(function () {
 					 		$scope.loading = false;
 						});
@@ -69,7 +69,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				},
 				function(data) {
 					console.log('Error: ' + data);
-				});
+				})
 				.finally(function () {
 					 $scope.loading = false;
 				});
@@ -83,7 +83,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				        $scope.getRatings(data);
 				},function(data) {
 					console.log('Error: ' + data);
-				});
+				})
 				.finally(function () {
 					 $scope.loading = false;
 				});
@@ -135,7 +135,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 						
 				},function(data) {
 						console.log('Error: ' + data);
-				});
+				})
 			
 				.finally(function () {
 					 $scope.loading = false;
