@@ -10,8 +10,8 @@
     "npm": "~2.15.5"
   },
   "dependencies": {
-    "angular":"~1.5.7",
-    "angular-route": "^1.5.7",
+    "angular":"~1.6.3",
+    "angular-route": "^1.6.3",
     "angular-spinners": "^3.1.2",
     "async": "~0.2.10",
     "body-parser": "~1.13.2",
