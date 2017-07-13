@@ -49,25 +49,27 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			
 			$.each(data, function(key,value) {    
 					$http.get('/api/ratings?yelpID='+value.yelpID)
-						.success(function(data){
+						.then(function(data){
 								$scope.stores[key].rating= data.rating;
 								$scope.stores[key].ratingImg= data.rating_img_url;
-							})
-							.error(function(data) {
+							},(function(data) {
 								console.log('Error: ' + data);
-							});		
+							});
+						 .finally(function () {
+					 $scope.loading = false;
+				});
 			});   	
 	      }
 	 
 		$scope.listStores=function(){
 			$scope.loading=true;
 			$http.get('/api/stores')
-				.success(function(data) {
+				.then(function(data) {
 					$scope.getRatings(data);
-				})
-				.error(function(data) {
+				},
+				function(data) {
 					console.log('Error: ' + data);
-				})
+				});
 				.finally(function () {
 					 $scope.loading = false;
 				});
@@ -77,12 +79,11 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		$scope.listClosestStores=function(){
 		      	$scope.loading=true;
 			$http.get('/api/closeststores?zipCode='+ $scope.zipCode)
-				.success(function(data) {
+				.then(function(data) {
 				        $scope.getRatings(data);
-				})
-				.error(function(data) {
+				},function(data) {
 					console.log('Error: ' + data);
-				})
+				});
 				.finally(function () {
 					 $scope.loading = false;
 				});
@@ -126,20 +127,19 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 			geocoder = new google.maps.Geocoder();
 			$http.get('/api/stores')
-				.success(function(data) {
+				.then(function(data) {
 					$.each(data, function(key,value) {  
 						console.log(data[key].loc[0])
 						$scope.plotPoints(data[key].loc[0], data[key].loc[1], data[key].storeName, data[key].address);
 					})
 						
-				})
-				.error(function(data) {
+				},function(data) {
 						console.log('Error: ' + data);
-				})
+				});
+			
 				.finally(function () {
 					 $scope.loading = false;
 				});
-		       	  
 			$("#containerWrap").css("height","900px");
 			
 		}
