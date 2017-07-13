@@ -52,12 +52,12 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 						.then(function(data){
 								$scope.stores[key].rating= data.rating;
 								$scope.stores[key].ratingImg= data.rating_img_url;
-							},(function(data) {
+							},function(data) {
 								console.log('Error: ' + data);
 							});
 						 .finally(function () {
-					 $scope.loading = false;
-				});
+					 		$scope.loading = false;
+						});
 			});   	
 	      }
 	 
