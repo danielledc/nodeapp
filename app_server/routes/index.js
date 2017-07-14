@@ -42,10 +42,12 @@ router.get("/stores", function(req, res) {
   
 router.get("/ratings", function(req, res) {
 
-yelp.y.business(req.query.yelpID) 
-	.then( res.json(data))
-	.catch(res.send(err));
-           
+yelp.y.business(req.query.yelpID, function(err, data) {
+	     if (err)
+                res.send(err)
+
+            res.json(data); 
+            });
 });
 
 
