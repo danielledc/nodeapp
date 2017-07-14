@@ -1,4 +1,4 @@
-var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners']);
+var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners','angular-toArrayFilter']);
    
      organicStores.config(function($routeProvider) {
        $routeProvider
