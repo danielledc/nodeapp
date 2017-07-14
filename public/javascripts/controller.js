@@ -48,7 +48,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$scope.clickedOnMap = false;
 			
 			$.each(data, function(key,value) {    
-				     console.log(value.yelpID);
+				     console.log(data[key].yelpID);
 					$http.get('/api/ratings?yelpID='+value.yelpID)
 						.then(function(data){
 								$scope.stores[key].rating=data.rating;
