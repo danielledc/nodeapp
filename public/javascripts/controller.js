@@ -50,8 +50,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$.each(data, function(key,value) {    
 					$http.get('/api/ratings?yelpID='+value.yelpID)
 						.then(function(data){
-								$scope.stores[key].rating= data.rating;
-								$scope.stores[key].ratingImg= data.rating_img_url;
+								$scope.stores[key].rating=data.rating;
+								$scope.stores[key].ratingImg=data.rating_img_url;
 							},function(data) {
 								console.log('Error: ' + data);
 							})
