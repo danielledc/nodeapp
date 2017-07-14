@@ -129,8 +129,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$http.get('/api/stores')
 				.then(function(response) {
 					$.each(response.data, function(key,value) {  
-						console.log(data[key].loc[0])
-						return $scope.plotPoints(data[key].loc[0], data[key].loc[1], data[key].storeName, data[key].address);
+						return $scope.plotPoints(response.data[key].loc[0], response.data[key].loc[1], response.data[key].storeName, response.data[key].address);
 					})
 						
 				},function(response) {
