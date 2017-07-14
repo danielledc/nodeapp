@@ -48,13 +48,12 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$scope.clickedOnMap = false;
 			
 			$.each(data, function(key,value) {    
-				     console.log(data[key].yelpID);
-					$http.get('/api/ratings?yelpID='+value.yelpID)
-						.then(function(data){
-								$scope.stores[key].rating=data.rating;
-								$scope.stores[key].ratingImg=data.rating_img_url;
-							},function(data) {
-								console.log('Error: ' + data);
+				     $http.get('/api/ratings?yelpID='+value.yelpID)
+						.then(function(response){
+								$scope.stores[key].rating=response.data.rating;
+								$scope.stores[key].ratingImg=response.data.rating_img_url;
+							},function(response) {
+								console.log('Error: ' + response.data);
 							})
 						 .finally(function () {
 					 		$scope.loading = false;
@@ -68,8 +67,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				.then(function(response) {
 				        return	$scope.getRatings(response.data);
 				},
-				function(data) {
-					console.log('Error: ' + data);
+				function(response) {
+					console.log('Error: ' + response.data);
 				})
 				.finally(function () {
 					 $scope.loading = false;
@@ -80,10 +79,10 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		$scope.listClosestStores=function(){
 		      	$scope.loading=true;
 			$http.get('/api/closeststores?zipCode='+ $scope.zipCode)
-				.then(function(data) {
-				        $scope.getRatings(data);
-				},function(data) {
-					console.log('Error: ' + data);
+				.then(function(response.data) {
+				        return $scope.getRatings(response.data);
+				},function(response) {
+					console.log('Error: ' + response.data);
 				})
 				.finally(function () {
 					 $scope.loading = false;
