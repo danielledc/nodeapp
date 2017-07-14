@@ -66,7 +66,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$scope.loading=true;
 			$http.get('/api/stores')
 				.then(function(data) {
-					$scope.getRatings(data);
+				        return	$scope.getRatings(data);
 				},
 				function(data) {
 					console.log('Error: ' + data);
