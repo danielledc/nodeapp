@@ -42,7 +42,7 @@ router.get("/stores", function(req, res) {
   
 router.get("/ratings", function(req, res) {
 
-
+console.log("here");
 yelp.y.business(req.query.yelpID).then(res => {
   res.json(data); 
 }).catch(e => {
