@@ -6,6 +6,7 @@ const apiKey = 'EtWiGICoPPmtLt1j6CqQe-yYpLm2O4AVkGvKccKE95Qbg4Mo0rDPLHMx6H8BuHrT
 
 const client = yelp.client(apiKey);
 
+console.log(client);
 // A callback based API is also available:
 
-module.exports.y = yelp.client(apiKey);
+module.exports.y = client;
