@@ -56,11 +56,12 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 							},function(response) {
 								console.log('Error: ' + response.data);
 							})
+							},5000)
 						 .finally(function () {
 					 		$scope.loading = false;
 						});
 					
-						},5000);
+						
 			});   	
 	      }
 	 
