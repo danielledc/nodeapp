@@ -44,7 +44,7 @@ router.get("/ratings", function(req, res) {
 
 
 yelp.client.business(req.query.yelpID).then(res => {
-	res.jsonBody.name;
+	res.data.jsonBody.rating;
 }).catch(e => {
   res.send(e);
 });
