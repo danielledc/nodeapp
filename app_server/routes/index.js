@@ -42,14 +42,28 @@ router.get("/stores", function(req, res) {
   
 router.get("/ratings", function(req, res) {
 
-yelp.y.business(req.query.yelpID, function(err, data) {
+
+/*.search(req).then(res => {
+  const firstResult = res.jsonBody.businesses[0];
+  const prettyJson = JSON.stringify(firstResult, null, 4);
+  res.json(data);
+}).catch(e => {
+  console.log(e);
+});
+*/
+yelp.y.client.business(req.query.yelpID).then(res => {
+  res.json(data); 
+}).catch(e => {
+  res.send(err);
+});
+/*yelp.y.business(req.query.yelpID, function(err, data) {
 	     if (err)
                 res.send(err)
 
             res.json(data); 
             });
 });
-
+*/
 
 router.get("/closeststores", function(req, res) {
        var limit = req.query.limit || 10;

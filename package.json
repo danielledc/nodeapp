@@ -10,7 +10,7 @@
     "npm": "~3.10.10"
   },
   "dependencies": {
-    "angular":"~1.6.5",
+    "angular": "~1.6.5",
     "angular-route": "^1.6.5",
     "angular-spinners": "^3.1.2",
     "angular-toarrayfilter": "^1.0.2",
@@ -29,6 +29,8 @@
     "transformers": "^3.1.0",
     "void-elements": "^2.0.1",
     "with": "^5.1.1",
-    "yelp": "^1.0.2"
+    "yelp": "^1.0.2",
+    "yelp-fusion": "^2.0.3",
+    "yelpv3": "^1.2.1"
   }
 }
