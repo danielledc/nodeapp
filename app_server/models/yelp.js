@@ -8,4 +8,4 @@ const client = yelp.client(apiKey);
 
 // A callback based API is also available:
 
-module.exports.y = yelp;
+module.exports.y = yelp.client(apiKey);
