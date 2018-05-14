@@ -1,4 +1,4 @@
-var getParams = function( queryString ) {
+/* getParams = function( queryString ) {
     var yelpID,  temp;
 
         temp = queryString.split('=');
@@ -8,4 +8,4 @@ var getParams = function( queryString ) {
     return yelpID;
 }
 
-
+*/
