@@ -59,8 +59,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 						 .finally(function () {
 					 		$scope.loading = false;
 						});
-					},1000);
-						)
+					
+						},1000);
 			});   	
 	      }
 	 
