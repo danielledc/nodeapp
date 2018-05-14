@@ -51,7 +51,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				     $http.get('/api/ratings?yelpID='+value.yelpID)
 						.then(function(response){
 								$scope.stores[key].rating=response.data.rating;
-								$scope.stores[key].ratingImg=response.data.rating_img_url;
+								$scope.stores[key].ratingImg=response.data.image_url;
 							},function(response) {
 								console.log('Error: ' + response.data);
 							})
