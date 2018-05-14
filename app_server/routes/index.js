@@ -43,7 +43,7 @@ router.get("/stores", function(req, res) {
 router.get("/ratings", function(req, res) {
 console.log(response.jsonBody.businesses[0].name);
 console.log(req.query.yelpID);
-yelp.y.business(req.query.yelpID).then(res => {
+y.business(req.query.yelpID).then(res => {
   res.jsonBody.name;
 }).catch(e => {
   res.send(e);
