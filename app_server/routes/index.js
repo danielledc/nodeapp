@@ -41,12 +41,12 @@ router.get("/stores", function(req, res) {
 });
   
 router.get("/ratings", function(req, res) {
-
+console.log(response.jsonBody.businesses[0].name);
 console.log(req.query.yelpID);
 yelp.y.business(req.query.yelpID).then(res => {
-  res.json(data); 
+  res.jsonBody.name;
 }).catch(e => {
-  res.send(err);
+  res.send(e);
 });
 /*yelp.y.business(req.query.yelpID, function(err, data) {
 	     if (err)
