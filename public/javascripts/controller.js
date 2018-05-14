@@ -48,7 +48,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$scope.clickedOnMap = false;
 			
 			$.each(data, function(key,value) {    
-			        $http.get('/api/ratings?yelpID='+value.yelpID)
+			        setTimeout(function(){
+						$http.get('/api/ratings?yelpID='+value.yelpID)
 						.then(function(response){
 								$scope.stores[key].rating=response.data.rating;
 								//$scope.stores[key].ratingImg=response.data.image_url;
@@ -58,6 +59,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 						 .finally(function () {
 					 		$scope.loading = false;
 						});
+					},1000);
+						)
 			});   	
 	      }
 	 
