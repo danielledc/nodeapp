@@ -56,6 +56,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 								})
 							 .finally(function () {
 								$scope.loading = false;
+								$scope.clickedOnList=true;
 							});
 				
 				});
@@ -63,7 +64,6 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	      }
 	 
 		$scope.listStores=function(){
-			$scope.clickedOnList = true;
 			$scope.clickedOnMap = false;
 			$scope.showHome = false;
 			if($scope.clickedOnList==false){
@@ -124,7 +124,6 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		$scope.showMap=function(){
 			$scope.loading=true;
 			$scope.clickedOnList = false;
-			$scope.clickedOnMap = true;
 			$scope.showHome = false;
 			if($scope.clickedOnMap==false){
 				 var mapOptions = {
@@ -146,6 +145,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				
 					.finally(function () {
 						 $scope.loading = false;
+						 $scope.clickedOnMap=true;
 					});
 				$("#containerWrap").css("height","900px");
 			}
