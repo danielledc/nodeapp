@@ -34,7 +34,7 @@
 	     </div>
 	    
              <div class="col-sm-12"  ng-repeat="store in stores | toArray | orderBy:sortBy | filter:filterBoroughs">    <strong> {{store.storeName}}<br/>
-				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><div style="display:none">{{store.rating}}{{store.borough}}</div>Rating:{{store.rating}} <img src="{{store.ratingImg}}" /><br/></strong><br/>
+				{{store.address}}<br/>{{store.phone}}<br/>{{store.hours}}<br/><a href="{{store.website}}">View Website</a><br/><div style="display:none">{{store.rating}}{{store.borough}}</div>{{store.rating}}<img src="{{store.ratingImg}}" /><br/></strong><br/>
 				   <br/>
 				   </div>
         </div>
