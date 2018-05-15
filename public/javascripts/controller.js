@@ -42,12 +42,10 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	      	$scope.stores = data;
 			$scope.ratingImg="";
 			$scope.rating="";
-	    	$scope.clickedOnList = true;
-			$scope.showHome = false;
-			$("#containerWrap").css("height","auto");
-			$scope.clickedOnMap = false;
+	    	$("#containerWrap").css("height","auto");
+			
 			$scope.loading=true;
-			if($scope.clickedOnList==false){
+			
 				$.each(data, function(key,value) {    
 						 $http.get('/api/ratings?yelpID='+value.yelpID)
 							.then(function(response){
@@ -65,16 +63,21 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	 
 		$scope.listStores=function(){
 			$scope.loading=true;
-			$http.get('/api/stores')
-				.then(function(response) {
-				        return	$scope.getRatings(response.data);
-				},
-				function(response) {
-					console.log('Error: ' + response.data);
-				})
-				//.finally(function () {
-					// $scope.loading = false;
-				//});
+			$scope.clickedOnList = true;
+			$scope.clickedOnMap = false;
+			$scope.showHome = false;
+			if($scope.clickedOnList==false){
+				$http.get('/api/stores')
+					.then(function(response) {
+							return	$scope.getRatings(response.data);
+					},
+					function(response) {
+						console.log('Error: ' + response.data);
+					})
+					//.finally(function () {
+						// $scope.loading = false;
+					//});
+			}
 			
 		}
 	       
