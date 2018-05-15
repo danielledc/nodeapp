@@ -42,15 +42,15 @@ router.get("/stores", function(req, res) {
   
 router.get("/ratings", function(req, res) {
 
-setTimeout(function(){
+	setTimeout(function(){
 
-yelp.client.business(req.query.yelpID).then(response => {
-	
-	res.json(response);
-}).catch(e => {
-  res.send(e);
-});
-},1000);
+		yelp.client.business(req.query.yelpID).then(response => {
+			
+			res.json(response);
+		}).catch(e => {
+		  res.send(e);
+		});
+		},1500);
 
 /*yelp.y.business(req.query.yelpID, function(err, data) {
 	     if (err)
