@@ -10,7 +10,9 @@
 	 		<input type="text" ng-model="zipCode" class="form-control" id="zip" placeholder="Enter zip" />&nbsp;<button type="submit" class="btn btn-primary">Submit</button>
 	 	</form>
 
-	  </div>
+	  </div
+	  <div id="toggleButtons" ng-show="showToggle"><button type="button" class="btn btn-primary" ng-click="showMap()">Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
+	    
 	 <div ng-show="clickedOnAbout">
 		<div class="col-sm-12">
 		<h4>About</h4>
@@ -19,9 +21,8 @@
 	</div>
 	
     <div   ng-show="clickedOnList" >
-		<div id="toggleButtons"><button type="button" class="btn btn-primary" ng-click="showMap()">Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
-	    <br/> <br/>
-	    <form class="form-inline">
+		<br/> <br/>
+	    <div class="col-sm-12"><form class="form-inline">
 	    	
 		    	<label for="pwd">Sort  By:</label><select class="form-control" ng-model="sortBy">
 	                <option value="" selected>--Select--</option>
@@ -44,8 +45,7 @@
 				   </div>
         </div>
 	<div ng-show="clickedOnMap" >
-	<div id="toggleButtons"><button type="button" class="btn btn-primary" ng-click="showMap()" >Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
-	  </div>
+	
 		<div id="map" class="col-sm-6"></div>
 	</div>			
     </div>

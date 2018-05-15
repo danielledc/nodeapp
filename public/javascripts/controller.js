@@ -64,6 +64,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	      }
 	 
 		$scope.listStores=function(){
+			$scope.showToggle=true;
+			
 			$scope.clickedOnMap = false;
 			$scope.showHome = false;
 			if($scope.clickedOnList==false){
@@ -120,6 +122,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		}
 	    
 		$scope.showMap=function(){
+			$scope.showToggle=true;
 			
 			$scope.showHome = false;
 			$scope.clickedOnList=false;
