@@ -14,8 +14,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 
       organicStores.controller('mainController', function($scope, $http) {
 	    $scope.loading = false;
-	    $scope.clickedOn=false;
 	    $scope.clickedOnMap=false;
+		$scope.clickedOnList=false;
 	    $scope.showHome=true;
 	    $scope.zipCode="";
 	    $scope.showBoroughs = {
@@ -42,23 +42,25 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	      	$scope.stores = data;
 			$scope.ratingImg="";
 			$scope.rating="";
-	    	$scope.clickedOn = true;
+	    	$scope.clickedOnList = true;
 			$scope.showHome = false;
 			$("#containerWrap").css("height","auto");
 			$scope.clickedOnMap = false;
 			$scope.loading=true;
-			$.each(data, function(key,value) {    
-			         $http.get('/api/ratings?yelpID='+value.yelpID)
-						.then(function(response){
-								$scope.stores[key].rating="Yelp Rating: "+response.data.jsonBody.rating+ " Stars";
-							},function(response) {
-								console.log('Error: ' + response.data);
-							})
-						 .finally(function () {
-					 		$scope.loading = false;
-						});
-			
-			});   	
+			if($scope.clickedOnList==false){
+				$.each(data, function(key,value) {    
+						 $http.get('/api/ratings?yelpID='+value.yelpID)
+							.then(function(response){
+									$scope.stores[key].rating="Yelp Rating: "+response.data.jsonBody.rating+ " Stars";
+								},function(response) {
+									console.log('Error: ' + response.data);
+								})
+							 .finally(function () {
+								$scope.loading = false;
+							});
+				
+				});
+			}			
 	      }
 	 
 		$scope.listStores=function(){
@@ -116,30 +118,32 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	
 		$scope.showMap=function(){
 			$scope.loading=true;
-			$scope.clickedOn = false;
+			$scope.clickedOnList = false;
 			$scope.clickedOnMap = true;
 			$scope.showHome = false;
-			 var mapOptions = {
-			 zoom: 11,
-			center: {lat: 40.78, lng: -74.03}//new google.maps.LatLng(40.799912,-74.01)
-	    		}
-	    		
-			 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-			geocoder = new google.maps.Geocoder();
-			$http.get('/api/stores')
-				.then(function(response) {
-					$.each(response.data, function(key,value) {  
-						return $scope.plotPoints(response.data[key].loc[0], response.data[key].loc[1], response.data[key].storeName, response.data[key].address);
+			if($scope.clickedOnMap==false){
+				 var mapOptions = {
+				 zoom: 11,
+				center: {lat: 40.78, lng: -74.03}//new google.maps.LatLng(40.799912,-74.01)
+					}
+					
+				 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+				geocoder = new google.maps.Geocoder();
+				$http.get('/api/stores')
+					.then(function(response) {
+						$.each(response.data, function(key,value) {  
+							return $scope.plotPoints(response.data[key].loc[0], response.data[key].loc[1], response.data[key].storeName, response.data[key].address);
+						})
+							
+					},function(response) {
+							console.log('Error: ' + response.data);
 					})
-						
-				},function(response) {
-						console.log('Error: ' + response.data);
-				})
-			
-				.finally(function () {
-					 $scope.loading = false;
-				});
-			$("#containerWrap").css("height","900px");
+				
+					.finally(function () {
+						 $scope.loading = false;
+					});
+				$("#containerWrap").css("height","900px");
+			}
 			
 		}
 		
