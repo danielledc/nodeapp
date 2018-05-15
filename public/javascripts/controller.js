@@ -39,14 +39,14 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	      }
 	      
 	      $scope.getRatings=function(data){
-	      		$scope.stores = data;
+	      	$scope.stores = data;
 			$scope.ratingImg="";
 			$scope.rating="";
-	    		$scope.clickedOn = true;
+	    	$scope.clickedOn = true;
 			$scope.showHome = false;
 			$("#containerWrap").css("height","auto");
 			$scope.clickedOnMap = false;
-			
+			$scope.loading=true;
 			$.each(data, function(key,value) {    
 			         $http.get('/api/ratings?yelpID='+value.yelpID)
 						.then(function(response){
