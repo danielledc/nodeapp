@@ -50,7 +50,7 @@ router.get("/ratings", function(req, res) {
 		}).catch(e => {
 		  res.send(e);
 		});
-		},1500);
+		},1800);
 
 /*yelp.y.business(req.query.yelpID, function(err, data) {
 	     if (err)
