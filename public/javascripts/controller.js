@@ -118,14 +118,13 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	    		google.maps.event.trigger(map, 'resize');
 			$scope.map.setCenter(center); 
 		}
-	    $scope.showAbout=function(){
-			$scope.clickedOnAbout= true;
-		}
+	    
 		$scope.showMap=function(){
-			$scope.loading=true;
 			$scope.clickedOnList = false;
 			$scope.showHome = false;
 			if($scope.clickedOnMap==false){
+				$scope.loading=true;
+			
 				 var mapOptions = {
 				 zoom: 11,
 				center: {lat: 40.78, lng: -74.03}//new google.maps.LatLng(40.799912,-74.01)
@@ -160,9 +159,6 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
     });
     
     
-    organicStores.controller('aboutController', function($scope) {
-        $scope.message = 'Look! I am an about page.';
-    });
       
 
 	
