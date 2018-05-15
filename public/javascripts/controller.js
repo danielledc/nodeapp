@@ -120,8 +120,9 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		}
 	    
 		$scope.showMap=function(){
-			$scope.clickedOnList = false;
+			
 			$scope.showHome = false;
+			$scope.clickedOnList=false;
 			if($scope.clickedOnMap==false){
 				$scope.loading=true;
 			
