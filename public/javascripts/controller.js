@@ -18,6 +18,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		$scope.clickedOnAbout=false;
 		$scope.clickedOnList=false;
 	    $scope.showHome=true;
+		$scope.showToggle=false;
 	    $scope.zipCode="";
 	    $scope.showBoroughs = {
 	    'Brooklyn': true,
