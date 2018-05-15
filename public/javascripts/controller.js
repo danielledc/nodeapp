@@ -151,8 +151,9 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 						 $scope.loading = false;
 						 $scope.clickedOnMap=true;
 					});
-				$("#containerWrap").css("height","900px");
+				
 			}
+			$("#containerWrap").css("height","900px");
 			
 		}
 		
