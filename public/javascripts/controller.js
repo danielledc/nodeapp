@@ -59,7 +59,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 							});
 				
 				});
-			}			
+						
 	      }
 	 
 		$scope.listStores=function(){

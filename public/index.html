@@ -47,7 +47,7 @@
 	</div>
 	<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 	<ul class="nav navbar-nav">
-	<li class="menuItem">	<a class="navbar-brand" href="#" ng-click="showAbout()">About</a></li>
+	<li class="menuItem">	<a class="navbar-brand" href="#" >About</a></li>
 	</ul>
 	</div>
 	</div>
@@ -58,7 +58,11 @@
      <ng-view></ng-view>
    
    </div>
-  
+  <div class="container" id="aboutWrap" ng-controller="aboutController" >
+    
+     <ng-view></ng-view>
+   
+   </div>
  
   <footer>
 	<div class="container">
