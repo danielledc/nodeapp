@@ -67,7 +67,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		$scope.listStores=function(){
 			$scope.showToggle=true;
 			
-			$scope.clickedOnMap = false;
+			$scope.clickedOnMap = !$scope.clickedOnMap;
 			$scope.showHome = false;
 			if($scope.clickedOnList==false){
 				$http.get('/api/stores')
@@ -121,12 +121,11 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	    		google.maps.event.trigger(map, 'resize');
 			$scope.map.setCenter(center); 
 		}
-	    
+	   
 		$scope.showMap=function(){
 			$scope.showToggle=true;
-			
 			$scope.showHome = false;
-			$scope.clickedOnList=false;
+			$scope.clickedOnList=!$scope.clickedOnList;
 			if($scope.clickedOnMap==false){
 				$scope.loading=true;
 			
