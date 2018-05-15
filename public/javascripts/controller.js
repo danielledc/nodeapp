@@ -70,9 +70,9 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				function(response) {
 					console.log('Error: ' + response.data);
 				})
-				.finally(function () {
-					 $scope.loading = false;
-				});
+				//.finally(function () {
+					// $scope.loading = false;
+				//});
 			
 		}
 	       
