@@ -57,7 +57,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 								})
 							 .finally(function () {
 								$scope.loading = false;
-								$scope.clickedOnList=true;
+								$scope.clickedOnList=!$scope.clickedOnList;
 							});
 				
 				});
@@ -148,7 +148,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				
 					.finally(function () {
 						 $scope.loading = false;
-						 $scope.clickedOnMap=true;
+						 $scope.clickedOnMap=!$scope.clickedOnMap;
 					});
 				
 			}
