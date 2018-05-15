@@ -11,9 +11,14 @@
 	 	</form>
 
 	  </div>
+	 <div ng-show="clickedOnAbout">
+		<div class="col-sm-12">
+		<h4>About</h4>
+		<div> This is a list of stores that sell mostly or exclusively organic food throughout the five boroughs of New York City.</div>
+		</div>
+	</div>
 	
-	
-    <div   ng-show="clickedOn" >
+    <div   ng-show="clickedOnList" >
 		<div id="toggleButtons"><button type="button" class="btn btn-primary" ng-click="showMap()">Map View</button> <button type="button" class="btn btn-primary" ng-click="listStores()">List View</button>
 	    <br/> <br/>
 	    <form class="form-inline">

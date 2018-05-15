@@ -15,6 +15,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
       organicStores.controller('mainController', function($scope, $http) {
 	    $scope.loading = false;
 	    $scope.clickedOnMap=false;
+		$scope.clickedOnAbout=false;
 		$scope.clickedOnList=false;
 	    $scope.showHome=true;
 	    $scope.zipCode="";
@@ -118,7 +119,9 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	    		google.maps.event.trigger(map, 'resize');
 			$scope.map.setCenter(center); 
 		}
-	
+	    $scope.showAbout=function(){
+			$scope.clickedOnAbout= true;
+		}
 		$scope.showMap=function(){
 			$scope.loading=true;
 			$scope.clickedOnList = false;
