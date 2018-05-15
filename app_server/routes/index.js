@@ -42,6 +42,7 @@ router.get("/stores", function(req, res) {
   
 router.get("/ratings", function(req, res) {
 
+setTimeout(function(){
 
 yelp.client.business(req.query.yelpID).then(res => {
 	
@@ -49,6 +50,8 @@ yelp.client.business(req.query.yelpID).then(res => {
 }).catch(e => {
   res.send(e);
 });
+},1000);
+
 /*yelp.y.business(req.query.yelpID, function(err, data) {
 	     if (err)
                 res.send(err)
