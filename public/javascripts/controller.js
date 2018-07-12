@@ -97,9 +97,9 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				}).catch(function(response) {
 					console.log('Error: ' + response.data);
 				})
-				.finally(function () {
-					 $scope.loading = false;
-				});
+				//.finally(function () {
+				//	 $scope.loading = false;
+				//});
 		}
 		$scope.plotPoints=function(longitude, latitude, storeName, address){
 			
