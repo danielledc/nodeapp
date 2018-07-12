@@ -46,7 +46,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 			$scope.rating="";
 	    	$("#containerWrap").css("height","auto");
 			
-			$scope.loading=true;
+			//$scope.loading=true;
 			
 				$.each(data, function(key,value) {    
 						 $http.get('/api/ratings?yelpID='+value.yelpID)
