@@ -90,6 +90,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		}
 	       
 		$scope.listClosestStores=function(){
+			$scope.showToggle=true;
+			$scope.showHome = false;
 		      	$scope.loading=true;
 			$scope.clickedOnList=true;
 			$scope.clickedOnMap = false;
