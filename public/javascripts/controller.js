@@ -74,6 +74,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 				$scope.clickedOnList=true;
 				$http.get('/api/stores')
 					.then(function(response) {
+							
 							return	$scope.getRatings(response.data);
 					},
 					function(response) {
@@ -90,6 +91,7 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 		      	$scope.loading=true;
 			$http.get('/api/closeststores?zipCode='+ $scope.zipCode)
 				.then(function(response) {
+				        console.log(response.data);
 				        return $scope.getRatings(response.data);
 				},function(response) {
 					console.log('Error: ' + response.data);
