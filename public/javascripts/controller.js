@@ -91,6 +91,8 @@ var organicStores = angular.module('organicStores', ['ngRoute','angularSpinners'
 	       
 		$scope.listClosestStores=function(){
 		      	$scope.loading=true;
+			$scope.clickedOnList=true;
+			$scope.clickedOnMap = false;
 			$http.get('/api/closeststores?zipCode='+ $scope.zipCode)
 				.then(function(response) {
 				        return $scope.getRatings(response.data);
