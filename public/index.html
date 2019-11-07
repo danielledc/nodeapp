@@ -1,78 +1,93 @@
 <!DOCTYPE html>
 <html ng-app="organicStores">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <base href="/" />
-    <link rel="stylesheet" href="/bootstrap/flatly/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="/stylesheets/style.css">
-      <!-- Custom Google Web Font -->
-    <link href="/bootstrap/flatly/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-	
+    <link rel="stylesheet" href="/bootstrap/flatly/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!-- Custom Googl<e Web Font -->
+    <link
+      href="/bootstrap/flatly/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arvo:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
     <!-- Custom CSS-->
-    <link href="/bootstrap/flatly/css/general.css" rel="stylesheet">
-	<link href="/bootstrap/flatly/css/custom.css" rel="stylesheet">
-	<link href="/bootstrap/flatly/css/owl.carousel.css" rel="stylesheet">
-	<link href="/bootstrap/flatly/css/owl.theme.css" rel="stylesheet">
-	<link href="/bootstrap/flatly/css/style.css" rel="stylesheet">
-	<link href="/bootstrap/flatly/css/animate.css" rel="stylesheet">
-	 
+    <link href="/bootstrap/flatly/css/general.css" rel="stylesheet" />
+    <link href="/bootstrap/flatly/css/custom.css" rel="stylesheet" />
+    <link href="/bootstrap/flatly/css/owl.carousel.css" rel="stylesheet" />
+    <link href="/bootstrap/flatly/css/owl.theme.css" rel="stylesheet" />
+    <link href="/bootstrap/flatly/css/style.css" rel="stylesheet" />
+    <link href="/bootstrap/flatly/css/animate.css" rel="stylesheet" />
+
     <script src="/javascripts/jquery-2.2.4.min.js"></script>
-     <script src="node_modules/angular/angular.js"></script> 
+    <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-toarrayfilter/toArrayFilter.js"></script>
-   <script src="node_modules/angular-spinners/dist/angular-spinners.min.js"></script>
-   <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-spinners/dist/angular-spinners.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-     <script src="javascripts/yelp.js"></script>
-	
-	 
-	 <script src="javascripts/controller.js"></script>
+    <script src="javascripts/yelp.js"></script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ykAUFdMhTM4OCGWQZYGOJJVqNyU2BYk&extension=.js" ></script>
+    <script src="javascripts/controller.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ykAUFdMhTM4OCGWQZYGOJJVqNyU2BYk&extension=.js"></script>
   </head>
-  <body >
- 
-  <nav class="navbar-default" style="position:fixed" role="navigation">
-	<div class="container">
-	<div class="navbar-header">
-	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-	<span class="sr-only">Toggle navigation</span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	</button>
-<a class="navbar-brand" href="/">NYC Organic Markets</a>
-	</div>
-	<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-	<ul class="nav navbar-nav">
-	<li class="menuItem">	<a class="navbar-brand" href="http://organicnyc.herokuapp.com" >Home</a></li>
-	
-	<li class="menuItem">	<a class="navbar-brand" href="#!about" >About</a></li>
-	</ul>
-	</div>
-	</div>
-	</nav>
+  <body>
+    <nav class="navbar-default" style="position:fixed" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-ex1-collapse"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">NYC Organic Markets</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="menuItem">
+              <a class="navbar-brand" href="http://organicnyc.herokuapp.com"
+                >Home</a
+              >
+            </li>
 
-  <div class="container" id="containerWrap" ng-controller="mainController" >
-    
-     <ng-view></ng-view>
-   
-   </div>
-  
- 
-  <footer>
-	<div class="container">
-	<div class="row">
-	<div class="col-md-7">
-	<h3 class="footer-title">&copy;Danielle Cauthen</h3>
-		</div>  
-	<div class="col-md-5">
-	
-	</div>
-	</div>
-	</div>
-</footer>
-</body>
+            <li class="menuItem">
+              <a class="navbar-brand" href="#!about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" id="containerWrap" ng-controller="mainController">
+      <ng-view></ng-view>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h3 class="footer-title">&copy;Danielle Cauthen</h3>
+          </div>
+          <div class="col-md-5"></div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
