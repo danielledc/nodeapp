@@ -23,7 +23,7 @@
     "jstransformer": "^1.0.0",
     "mongodb": "^2.2.30",
     "mongoose": "^4.5.0",
-    "morgan": "~1.6.1",
+    "morgan": "~1.9.1",
     "serve-favicon": "~2.3.0",
     "simple-geocoder": "^0.1.1",
     "transformers": "^3.1.0",
