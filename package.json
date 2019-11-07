@@ -22,7 +22,7 @@
     "jade": "~1.11.0",
     "jstransformer": "^1.0.0",
     "mongodb": "^2.2.30",
-    "mongoose": "^4.5.0",
+    "mongoose": "^5.7.8",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "simple-geocoder": "^0.1.1",
