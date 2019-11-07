@@ -1,6 +1,6 @@
 var organicStores = angular.module("organicStores", [
   "ngRoute",
-  "angularSpinners",
+  "angularSpinner",
   "angular-toArrayFilter"
 ]);
 
