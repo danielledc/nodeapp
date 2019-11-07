@@ -1,53 +1,56 @@
-body { 
-	padding-top: 60px; 
-
+body {
+  padding-top: 60px;
 }
 
-#about{
-	text-align:left;	
+#about {
+  text-align: left;
+}
 
+.form-control {
+  margin: 0px auto;
+  left: 0px;
+  right: 0px;
+  width: 50%;
 }
-.form-control{
-	margin:0px auto;
-	left:0px;
-	right:0px;
-	width:50%;
 
+#storeList {
+  display: none;
 }
-#storeList{
-	display:none;
+
+#containerWrap {
+  text-align: center;
+
+  height: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
 }
-#containerWrap{
-text-align:center;
-	
-	height:100%;
-	margin-top:0px;
-	margin-bottom:0px;
-   position:relative;
-}
+
 #map {
-        height: 800px;
-	text-align:center;
-	margin:0 auto;
-	position:absolute;
-	right:0px;
-	left:0px;
-	max-width:none;
-      }
+  height: 800px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  max-width: none;
+}
 
-#toggleButtons{
-	padding-top:20px;
-	padding-bottom:20px;
+#toggleButtons {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-#homeWrap{
-position: absolute;
+
+#homeWrap {
+  position: absolute;
   top: 50%;
-transform: translateY(-50%);
-  
+  transform: translateY(-50%);
 }
-footer{
-	position:relative;
+
+footer {
+  position: relative;
 }
-.navbar-brand{
-	position:absolute;	
+
+.navbar-brand {
+  position: absolute;
 }
